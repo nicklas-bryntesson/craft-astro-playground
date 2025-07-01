@@ -1,0 +1,51 @@
+color: blue
+fieldLayouts:
+  57f9f163-1b3b-47ca-9888-7e8b414494f1:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-06-30T13:03:12+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: e7535f51-5176-457a-aa3e-4bdc96cabea3
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 1f0be7fa-e4c1-499f-86da-f47ded92b1fb
+        userCondition: null
+handle: globalThingy
+hasTitleField: true
+icon: bomb
+name: 'Global Thingy'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
