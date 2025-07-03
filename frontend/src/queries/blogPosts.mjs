@@ -6,26 +6,7 @@ export const BLOG_POSTS_QUERY = `
         slug
         title
         pageSubheading
-        pageContent {
-          ... on image_Entry {
-            id
-            typeHandle
-            image {
-              alt
-              url @transform(handle: "hero")
-            }
-          }
-          ... on video_Entry {
-            id
-            typeHandle
-            embedCode
-          }
-          ... on callout_Entry {
-            id
-            typeHandle
-            pageContent
-          }
-        }
+        pageContent
         authorName
         authorId
         postDate @formatDateTime(format: "F j, Y")

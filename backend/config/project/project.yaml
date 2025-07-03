@@ -1,4 +1,4 @@
-dateModified: 1751288700
+dateModified: 1751526566
 elementSources:
   craft\elements\Entry:
     -
@@ -166,7 +166,6 @@ meta:
     d55d172f-8b8f-4bb7-b680-31249981c350: Global # Global
     d390347a-09cf-4b70-a3b4-bc3cca520623: Category # Category
     f7576aa3-c155-4b54-82c9-8cb8c93495c9: Callout # Callout
-    fa5bd1b6-4aaf-4c6c-9a4b-b435aebcb1df: 'Global Thingy' # Global Thingy
 plugins:
   ckeditor:
     edition: standard

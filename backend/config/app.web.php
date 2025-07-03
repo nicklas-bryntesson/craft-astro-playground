@@ -8,7 +8,9 @@ return [
         'class' => Cors::class,
         'cors' => [
             'Origin' => [
-                App::env('PRIMARY_SITE_URL')
+                App::env('PRIMARY_SITE_URL'),
+                'https://starter-astro.ddev.site',
+                'http://starter-astro.ddev.site'
             ],
             'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
             'Access-Control-Request-Headers' => ['*'],

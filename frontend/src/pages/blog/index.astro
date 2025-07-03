@@ -20,6 +20,9 @@ const data = await craftClient.query(BLOG_QUERY, {
 
 const blogPage = data?.blogEntries?.[0];
 const posts = data?.blogPostsEntries || [];
+console.log('Blog data:', JSON.stringify(data, null, 2));
+console.log('Posts:', posts);
+console.log('First post image:', posts[0]?.image);
 const totalPosts = data?.entryCount || 0;
 const { totalPages } = getPaginationData(currentPage, totalPosts, itemsPerPage);
 

@@ -19,8 +19,9 @@ export const BLOG_QUERY = `
         pageContent
         postDate @formatDateTime(format: "F j, Y")
         image {
+          id
           alt
-          url
+          url @transform(handle: "hero")
         }
       }
     }

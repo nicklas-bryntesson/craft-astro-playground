@@ -8,19 +8,29 @@ settings:
     - 0922209d-2911-419e-82cf-b05113a35f6e # Wide
   availableVolumes:
     - 7b9364bd-2215-495a-8b0b-2280df887a8b # Media
+  characterLimit: null
   ckeConfig: b579b454-12bd-4710-a436-c26907141957 # Full
-  createButtonLabel: 'New block'
+  createButtonLabel: null
   defaultTransform: null
-  enableSourceEditingForNonAdmins: false
   entryTypes:
-    - a06e695e-af7f-4a1b-84a7-575ec935e293 # Video
-    - 5358db38-27c0-49b4-b9d3-e68326e79da2 # Image
-    - f7576aa3-c155-4b54-82c9-8cb8c93495c9 # Callout
+    -
+      __assoc__:
+        -
+          - uid
+          - 5358db38-27c0-49b4-b9d3-e68326e79da2 # Image
+    -
+      __assoc__:
+        -
+          - uid
+          - f7576aa3-c155-4b54-82c9-8cb8c93495c9 # Callout
+  fullGraphqlData: true
   purifierConfig: null
   purifyHtml: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   showWordCount: true
+  sourceEditingGroups:
+    - __ADMINS__
   wordLimit: null
 translationKeyFormat: null
 translationMethod: none
