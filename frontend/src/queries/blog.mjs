@@ -6,7 +6,30 @@ export const BLOG_QUERY = `
         slug
         title
         pageSubheading
-        pageContent
+        pageContent {
+          html,
+          chunks {
+            __typename
+            ... on image_Entry {
+              title,
+              url,
+              image {
+                url,
+                width,
+                height
+              }
+            },
+            ... on callout_Entry {
+              title,
+              pageContent {
+                html
+              }
+            },
+            ... on CkeditorMarkup {
+              html
+            }
+          }
+        }
       }
     }
     blogPostsEntries(limit: $limit, offset: $offset) {
@@ -16,7 +39,6 @@ export const BLOG_QUERY = `
         title
         uri
         pageSubheading
-        pageContent
         postDate @formatDateTime(format: "F j, Y")
         image {
           id

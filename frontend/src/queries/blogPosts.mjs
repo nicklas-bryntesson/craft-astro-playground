@@ -6,7 +6,30 @@ export const BLOG_POSTS_QUERY = `
         slug
         title
         pageSubheading
-        pageContent
+        pageContent {
+          html,
+          chunks {
+            __typename
+            ... on image_Entry {
+              title,
+              url,
+              image {
+                url,
+                width,
+                height
+              }
+            },
+            ... on callout_Entry {
+              title,
+              pageContent {
+                html
+              }
+            },
+            ... on CkeditorMarkup {
+              html
+            }
+          }
+        }
         authorName
         authorId
         postDate @formatDateTime(format: "F j, Y")

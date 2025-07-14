@@ -4,6 +4,7 @@ import { craftClient } from '../../lib/graphql';
 import { getPreviewStatus, PreviewScript } from '../../lib/preview';
 import { BLOG_POSTS_QUERY } from '../../queries/blogPosts.mjs';
 import Teaser from '../../components/Teaser.astro';
+import ContentBlocks from '../../components/ContentBlocks.astro';
 
 const { slug } = Astro.params;
 const preview = getPreviewStatus(Astro.url);
@@ -55,12 +56,15 @@ const hasNextPrev = post.next || post.prev;
       </div>
     </header>
 
-    <section class="page__content">
-      <div 
-        class="container mx-auto py-12 px-2 prose prose-slate lg:prose-xl"
-        set:html={post.pageContent}
-      />
-    </section>
+    {post.pageContent?.chunks && (
+      <section class="page__content">
+        <div 
+          class="container mx-auto py-12 px-2 prose prose-slate lg:prose-xl"
+        >
+          <ContentBlocks chunks={post.pageContent.chunks} />
+        </div>
+      </section>
+    )}
 
     {hasNextPrev && 
       <section class="bg-slate-100">
