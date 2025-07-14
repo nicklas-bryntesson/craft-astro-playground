@@ -3,6 +3,7 @@ import { craftClient } from '../lib/graphql';
 import { GLOBALS_QUERY } from '../queries/globals.mjs';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ScrollObserver from '../components/ScrollObserver.astro';
 import '../styles/tailwind.css';
 
 const { title } = Astro.props;
@@ -24,17 +25,40 @@ const currentPath = Astro.url.pathname;
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<div class="flex min-h-screen flex-col">
+		<div 
+			id="app" 
+			class="page"
+			data-scrolled="false"
+		>
 			<Header 
 				{currentPath} 
 				{pages} 
 				{siteName}
 				logo={globals?.logo}
 			/>
-			<div class="grow">
+			<div class="pageContent">
 				<slot />
 			</div>
 			<Footer address={globals?.address[0]} />
 		</div>
+		<ScrollObserver />
 	</body>
 </html>
+
+<style scoped>
+	body {
+		min-height: 100vh;
+		min-block-size: 100dvh;
+		background-color: white;
+	}
+
+	#app {
+		display: flex;
+		flex-direction: column;
+		background-color: hsl(0, 0%, 100%);
+	}
+
+	.pageContent {
+		flex-grow: 1;
+	}
+</style>

@@ -1,0 +1,46 @@
+---
+---
+
+<div id="scroll-observer"></div>
+
+<style>
+	#scroll-observer {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 1px;
+		height: 1px;
+		z-index: -1;
+		pointer-events: none;
+		opacity: 0;
+	}
+</style>
+
+<script>
+	function handleScrollObserver() {
+		const observerEl = document.getElementById('scroll-observer');
+
+		if (!observerEl) return;
+        if (observerEl.dataset.observerAttached) return;
+
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				const page = document.getElementById('app');
+
+				if (page) {
+					page.setAttribute('data-scrolled', String(!entry.isIntersecting));
+				}
+			},
+			{
+				rootMargin: '0px',
+				threshold: 0,
+			},
+		);
+
+		observer.observe(observerEl);
+        observerEl.dataset.observerAttached = 'true';
+	}
+
+	document.addEventListener('astro:page-load', handleScrollObserver);
+	handleScrollObserver();
+</script> 
