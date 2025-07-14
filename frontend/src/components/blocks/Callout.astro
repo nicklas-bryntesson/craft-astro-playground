@@ -1,0 +1,7 @@
+---
+const { block } = Astro.props;
+---
+<aside class="my-12 not-prose">
+  <div class="rounded-lg bg-slate-100 p-8" set:html={block.pageContent.html}>
+  </div>
+</aside> 

@@ -4,9 +4,31 @@ export const GUESTBOOK_QUERY = `
       ... on page_Entry {
         id
         title
-        pageContent
         pageSubheading
         authorId
+        pageContent {
+          chunks {
+            __typename
+            ... on image_Entry {
+              title
+              url
+              image {
+                url
+                width
+                height
+              }
+            }
+            ... on callout_Entry {
+              title
+              pageContent {
+                html
+              }
+            }
+            ... on CkeditorMarkup {
+              html
+            }
+          }
+        }
       }
     }
   }

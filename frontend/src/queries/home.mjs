@@ -5,7 +5,30 @@ export const HOME_QUERY = `
         id
         title
         pageSubheading
-        pageContent
+        pageContent {
+          html
+          chunks {
+            __typename
+            ... on image_Entry {
+              title
+              url
+              image {
+                url
+                width
+                height
+              }
+            }
+            ... on callout_Entry {
+              title
+              pageContent {
+                html
+              }
+            }
+            ... on CkeditorMarkup {
+              html
+            }
+          }
+        }
         image {
           url @transform(handle: "hero")
           alt

@@ -1,0 +1,19 @@
+---
+import Callout from './blocks/Callout.astro';
+import Image from './blocks/Image.astro';
+import Text from './blocks/Text.astro';
+
+const { chunks } = Astro.props;
+---
+{chunks?.map((block: any) => {
+  switch (block.__typename) {
+    case 'image_Entry':
+      return <Image block={block} />;
+    case 'callout_Entry':
+      return <Callout block={block} />;
+    case 'CkeditorMarkup':
+      return <Text block={block} />;
+    default:
+      return <p>Unknown block type: {block.__typename}</p>;
+  }
+})} 
