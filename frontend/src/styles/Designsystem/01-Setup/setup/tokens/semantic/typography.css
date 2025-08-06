@@ -1,0 +1,33 @@
+@layer tokens.semantic.typography {
+  :where(:root) {
+    --fontFamily--heading: var(--SYSTEM--UI);
+    --fontFamily--body: var(--GEORGIA);
+
+    --lineHeight--body: 1.3;
+    --lineHeight--heading: 1.1;
+
+    @media (max-width: 48.74rem) {
+      --fontSize--h1: var(--FONTSIZE--H1--MOBILE);
+      --fontSize--h2: var(--FONTSIZE--H2--MOBILE);
+      --fontSize--h3: var(--FONTSIZE--H3--MOBILE);
+      --fontSize--h4: var(--FONTSIZE--H4--MOBILE);
+      --fontSize--h5: var(--FONTSIZE--H5--MOBILE);
+      --fontSize--h6: var(--FONTSIZE--H6--MOBILE);
+
+      --fontSize--body: var(--FONTSIZE--BODY--MOBILE);
+      --fontSize--body--small: var(--FONTSIZE--BODY--SMALL--MOBILE);
+    }
+
+    @media (min-width: 48.75rem) {
+      --fontSize--h1: var(--FONTSIZE--H1--DESKTOP);
+      --fontSize--h2: var(--FONTSIZE--H2--DESKTOP);
+      --fontSize--h3: var(--FONTSIZE--H3--DESKTOP);
+      --fontSize--h4: var(--FONTSIZE--H4--DESKTOP);
+      --fontSize--h5: var(--FONTSIZE--H5--DESKTOP);
+      --fontSize--h6: var(--FONTSIZE--H6--DESKTOP);
+
+      --fontSize--body: var(--FONTSIZE--BODY--DESKTOP);
+      --fontSize--body--small: var(--FONTSIZE--BODY--SMALL--DESKTOP);
+    }
+  }
+}

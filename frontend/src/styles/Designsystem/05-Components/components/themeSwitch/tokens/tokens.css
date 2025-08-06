@@ -1,0 +1,91 @@
+:where(:root) {
+  --switch--backgroundColor--light: var(--COLOR--N15);
+  --switch--color--light: var(--COLOR--N95);
+  --switch--borderColor--light: var(--COLOR--N30);
+  --switch--active--backgroundColor--light: var(--COLOR--N70);
+  --switch--active--color--light: var(--COLOR--N00);
+
+  /* light contrast */
+  --switch--backgroundColor--light--contrast: var(--COLOR--N90);
+  --switch--color--light--contrast: var(--COLOR--N95);
+  --switch--borderColor--light--contrast: var(--COLOR--N80);
+  --switch--active--backgroundColor--light--contrast: var(--COLOR--N70);
+  --switch--active--color--light--contrast: var(--COLOR--N00);
+
+  /* Dark - primary */
+  --switch--backgroundColor--dark: var(--COLOR--N90);
+  --switch--color--dark: var(--COLOR--N95);
+  --switch--borderColor--dark: var(--COLOR--N80);
+  --switch--active--backgroundColor--dark: var(--COLOR--N70);
+  --switch--active--color--dark: var(--COLOR--N00);
+
+  /* Dark - contrast */
+  --switch--backgroundColor--dark--contrast: transparent;
+  --switch--color--dark--contrast: var(--COLOR--N00);
+  --switch--borderColor--dark--contrast: var(--COLOR--N50);
+  --switch--active--backgroundColor--dark--contrast: var(--COLOR--N00);
+  --switch--active--color--dark--contrast: var(--COLOR--N95);
+}
+
+:root {
+  color-scheme: light;
+  --switch--backgroundColor: var(--switch--backgroundColor--light);
+  --switch--color: var(--switch--color--light);
+  --switch--borderColor: var(--switch--borderColor--light);
+  --switch--active--backgroundColor: var(
+    --switch--active--backgroundColor--light
+  );
+  --switch--active--color: var(--switch--active--color--light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --switch--backgroundColor: var(--switch--backgroundColor--dark);
+    --switch--color: var(--switch--color--dark);
+    --switch--borderColor: var(--switch--borderColor--dark);
+    --switch--active--backgroundColor: var(
+      --switch--active--backgroundColor--dark
+    );
+    --switch--active--color: var(--switch--active--color--dark);
+  }
+}
+
+/* prettier-ignore */
+[data-appearance="light"] {
+      color-scheme: light;
+      --switch--backgroundColor: var(--switch--backgroundColor--light);
+    --switch--color: var(--switch--color--light);
+    --switch--borderColor: var(--switch--borderColor--light);
+    --switch--active--backgroundColor: var(--switch--active--backgroundColor--light);
+    --switch--active--color: var(--switch--active--color--light);
+  }
+
+[data-appearance="dark"] {
+  color-scheme: dark;
+  --switch--backgroundColor: var(--switch--backgroundColor--dark);
+  --switch--color: var(--switch--color--dark);
+  --switch--borderColor: var(--switch--borderColor--dark);
+  --switch--active--backgroundColor: var(
+    --switch--active--backgroundColor--dark
+  );
+  --switch--active--color: var(--switch--active--color--dark);
+}
+
+@media (prefers-contrast: more) {
+  :root {
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+    }
+  }
+
+  [data-appearance="light"] {
+    color-scheme: light;
+  }
+
+  [data-appearance="dark"] {
+    color-scheme: dark;
+  }
+}

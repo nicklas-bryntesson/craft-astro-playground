@@ -1,0 +1,88 @@
+{# -----------------------------------------
+   1) Define valid options
+------------------------------------------ #}
+{% set allowedTypes = ['primary', 'secondary', 'tertiary'] %}
+{% set allowedSizes = ['small', 'medium', 'large'] %}
+{% set allowedIconPositions = ['start', 'end'] %}
+{% set allowedTestStates = ['hover', 'active', 'focus', 'debug'] %}
+
+{# -----------------------------------------
+   2) Collect potential errors
+------------------------------------------ #}
+{% set errors = [] %}
+
+{% set buttonType = type ?? 'primary' %}
+{% set buttonSize = size ?? 'medium' %}
+{% set position   = iconPosition is defined ? iconPosition : 'end' %}
+{% set testState  = testState is defined ? testState : null %}
+
+{# Validate button type #}
+{% if buttonType not in allowedTypes %}
+  {% set errors = errors|merge([
+    "Invalid button type `#{buttonType}`. Allowed types: #{allowedTypes|join(', ')}."
+  ]) %}
+{% endif %}
+
+{# Validate button size #}
+{% if buttonSize not in allowedSizes %}
+  {% set errors = errors|merge([
+    "Invalid button size `#{buttonSize}`. Allowed sizes: #{allowedSizes|join(', ')}."
+  ]) %}
+{% endif %}
+
+{# Validate icon position (if icon is provided) #}
+{% if icon is defined and position not in allowedIconPositions %}
+  {% set errors = errors|merge([
+    "Invalid icon position `#{position}`. Allowed positions: #{allowedIconPositions|join(', ')}."
+  ]) %}
+{% endif %}
+
+{# Validate test state (if provided) #}
+{% if testState is not null and testState not in allowedTestStates %}
+  {% set errors = errors|merge([
+    "Invalid test state `#{testState}`. Allowed states: #{allowedTestStates|join(', ')}."
+  ]) %}
+{% endif %}
+
+{# Show errors if any exist #}
+{% if errors|length %}
+  <div class="unsupportedContainer" role="alert">
+    <strong>Error:</strong> {{ errors|join(' | ') }}
+  </div>
+{% else %}
+
+  {# -----------------------------------------
+     3) Define button variables
+  ------------------------------------------ #}
+  {% set buttonHref     = href ?? '#' %}
+  {% set buttonText     = text ?? '' %}
+  {% set buttonIcon     = icon ?? null %}
+  {% set buttonId       = id ?? null %}
+  {% set customClasses  = classes ?? null %}
+
+  {# Assign valid test state, or empty string if none provided #}
+  {% set testStateAttribute = testState is not null ? testState : '' %}
+
+  {# -----------------------------------------
+     4) Render button
+  ------------------------------------------ #}
+  <a
+    {% if buttonId %} id="{{ buttonId }}" {% endif %}
+    class="button{% if customClasses %} {{ customClasses }}{% endif %}"
+    href="{{ buttonHref }}"
+
+    data-type="{{ buttonType }}"
+    data-size="{{ buttonSize }}"
+    {% if buttonIcon %} data-icon="{{ buttonIcon }}" {% endif %}
+    {% if buttonIcon %} data-icon-position="{{ position }}" {% endif %}
+    {% if testState is not null %} data-test-state="{{ testState }}" {% endif %}
+  >
+    <span class="buttonText">{{ buttonText|raw }} <span class="screenReaderText"></span></span>
+
+    {% if buttonIcon %}
+      <svg class="buttonIcon" aria-hidden="true" width="1em" height="1em">
+        <use xlink:href="#{{ buttonIcon }}"></use>
+      </svg>
+    {% endif %}
+  </a>
+{% endif %}

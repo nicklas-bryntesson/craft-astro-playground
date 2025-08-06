@@ -30,23 +30,25 @@ const pageTitle = totalPages > 1
 ---
 
 <Layout title={pageTitle}>
-  <main class="container mx-auto px-4 py-8">
+  <main class="">
     {blogPage && (
-      <header class="container mx-auto pt-12 pb-6 px-2 text-2xl">
-        <h1 class="font-bold text-4xl sm:text-6xl lg:text-9xl">{blogPage.title}</h1>
+      <header class="">
+        <h1 class="">{blogPage.title}</h1>
         {blogPage.pageSubheading && (
-          <p class="text-xl text-gray-600 mb-4">{blogPage.pageSubheading}</p>
+          <p class="">{blogPage.pageSubheading}</p>
         )}
       </header>
     )}
     {blogPage?.pageContent?.chunks && (
-      <div class="container mx-auto py-12 px-2 prose prose-slate lg:prose-xl">
+      <div class="pageContent prose">
         <ContentBlocks chunks={blogPage.pageContent.chunks} />
       </div>
     )}
-    <section class="container mx-auto mb-6 px-2 divide-y divide-slate-300">
+
+
+    <section class="relatedContent">
       {posts.length > 0 ? (
-        <div class="sm:grid sm:grid-cols-2 sm:gap-6">
+        <div class="teaserContainer">
           {posts.map((post: any, index: any) => (
             <Teaser 
               entry={post}
@@ -55,7 +57,7 @@ const pageTitle = totalPages > 1
           ))}
         </div>
       ) : (
-        <div class="text-center text-gray-600 py-12">
+        <div class="">
           No posts found
         </div>
       )}
@@ -66,7 +68,39 @@ const pageTitle = totalPages > 1
         />
       )}
     </section>
+
+
   </main>
 </Layout>
 
 <Fragment set:html={PreviewScript({ isPreview: preview.isPreview })} />
+
+
+<style scoped>
+  :where(main) {
+    display: grid;
+    grid-template-columns: var(--centerGrid--columns);
+
+    & > * {
+      grid-column: main;
+    }
+
+    & .relatedContent {
+      --_gridColumns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+
+      margin-inline: auto;
+      grid-column: 1/-1;
+      display: grid;
+      grid-template-columns: var(--centerGrid--columns);
+
+      > .teaserContainer {
+        grid-column: main;
+        display: grid;
+        grid-template-columns: var(--_gridColumns);
+        gap:1rem;
+      }
+    }
+  }
+
+
+</style>

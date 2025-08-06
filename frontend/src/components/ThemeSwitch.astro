@@ -1,0 +1,217 @@
+---
+const legendLabel = 'Choose theme';
+const autoThemeLabel = 'System preferences';
+const lightThemeLabel = 'Light theme';
+const darkThemeLabel = 'Dark theme';
+---
+
+<fieldset class="ThemeSwitch" data-setting="auto/light/dark">
+
+    <legend class="screenReaderText">{legendLabel}</legend>
+
+    <input id="themeSystem" class="screenReaderText" type="radio" name="theme" value="system">
+    <label class="themeChoice" for="themeSystem">
+        <span class="screenReaderText">{autoThemeLabel}</span>
+        <svg aria-hidden="true" width="1em" height="1em">
+            <use xlink:href="#icon-monitor"></use>
+        </svg>
+    </label>
+
+    <input id="themeLight" class="screenReaderText" type="radio" name="theme" value="light">
+    <label class="themeChoice" for="themeLight">
+        <span class="screenReaderText">{lightThemeLabel}</span>
+        <svg aria-hidden="true" width="1em" height="1em">
+            <use xlink:href="#icon-sun"></use>
+        </svg>
+    </label>
+
+    <input id="themeDark" class="screenReaderText" type="radio" name="theme" value="dark">
+    <label class="themeChoice" for="themeDark">
+        <span class="screenReaderText">{darkThemeLabel}</span>
+        <svg aria-hidden="true" width="1em" height="1em">
+            <use xlink:href="#icon-moon"></use>
+        </svg>
+    </label>
+
+    <div class="currentChoice"></div>
+
+</fieldset>
+
+<style>
+:root {
+  --switch--backgroundColor--light: var(--COLOR--N15);
+  --switch--color--light: var(--COLOR--N95);
+  --switch--borderColor--light: var(--COLOR--N30);
+  --switch--active--backgroundColor--light: var(--COLOR--N70);
+  --switch--active--color--light: var(--COLOR--N00);
+
+  /* light contrast */
+  --switch--backgroundColor--light--contrast: var(--COLOR--N90);
+  --switch--color--light--contrast: var(--COLOR--N95);
+  --switch--borderColor--light--contrast: var(--COLOR--N80);
+  --switch--active--backgroundColor--light--contrast: var(--COLOR--N70);
+  --switch--active--color--light--contrast: var(--COLOR--N00);
+
+  /* Dark - primary */
+  --switch--backgroundColor--dark: var(--COLOR--N90);
+  --switch--color--dark: var(--COLOR--N95);
+  --switch--borderColor--dark: var(--COLOR--N80);
+  --switch--active--backgroundColor--dark: var(--COLOR--N70);
+  --switch--active--color--dark: var(--COLOR--N00);
+
+  /* Dark - contrast */
+  --switch--backgroundColor--dark--contrast: transparent;
+  --switch--color--dark--contrast: var(--COLOR--N00);
+  --switch--borderColor--dark--contrast: var(--COLOR--N50);
+  --switch--active--backgroundColor--dark--contrast: var(--COLOR--N00);
+  --switch--active--color--dark--contrast: var(--COLOR--N95);
+}
+
+:root {
+  color-scheme: light;
+  --switch--backgroundColor: var(--switch--backgroundColor--light);
+  --switch--color: var(--switch--color--light);
+  --switch--borderColor: var(--switch--borderColor--light);
+  --switch--active--backgroundColor: var(
+    --switch--active--backgroundColor--light
+  );
+  --switch--active--color: var(--switch--active--color--light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --switch--backgroundColor: var(--switch--backgroundColor--dark);
+    --switch--color: var(--switch--color--dark);
+    --switch--borderColor: var(--switch--borderColor--dark);
+    --switch--active--backgroundColor: var(
+      --switch--active--backgroundColor--dark
+    );
+    --switch--active--color: var(--switch--active--color--dark);
+  }
+}
+
+/* prettier-ignore */
+[data-appearance="light"] {
+      color-scheme: light;
+      --switch--backgroundColor: var(--switch--backgroundColor--light);
+    --switch--color: var(--switch--color--light);
+    --switch--borderColor: var(--switch--borderColor--light);
+    --switch--active--backgroundColor: var(--switch--active--backgroundColor--light);
+    --switch--active--color: var(--switch--active--color--light);
+  }
+
+[data-appearance="dark"] {
+  color-scheme: dark;
+  --switch--backgroundColor: var(--switch--backgroundColor--dark);
+  --switch--color: var(--switch--color--dark);
+  --switch--borderColor: var(--switch--borderColor--dark);
+  --switch--active--backgroundColor: var(
+    --switch--active--backgroundColor--dark
+  );
+  --switch--active--color: var(--switch--active--color--dark);
+}
+
+@media (prefers-contrast: more) {
+  :root {
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+    }
+  }
+
+  [data-appearance="light"] {
+    color-scheme: light;
+  }
+
+  [data-appearance="dark"] {
+    color-scheme: dark;
+  }
+}
+
+:where(.ThemeSwitch) {
+  --_padding: 0.2em;
+  --_radius: 0.35em;
+  --_iconSize: 1.5em;
+  --_size: 1.75rem;
+
+  --_color: var(--switch--color);
+  --_backgroundColor: var(--switch--backgroundColor);
+  --_borderColor: var(--switch--borderColor);
+  --_activeBackgroundColor: var(--switch--active--backgroundColor);
+  --_activeColor: var(--switch--active--color);
+
+  all: unset; /* remove fieldset styles */
+  display: flex;
+  position: relative;
+  gap: var(--_padding);
+  background-color: transparent;
+  padding: var(--_padding);
+  border-radius: var(--_radius);
+  isolation: isolate;
+  transform: translateZ(0);
+  inline-size: fit-content;
+  border: 1px solid var(--_borderColor);
+
+  &:has(input:focus-visible) {
+    outline: 0.125rem dashed var(--focus--outlineColor--primary);
+    outline-offset: 2px;
+
+    & .currentChoice {
+      outline: 0.125rem solid var(--focus--outlineColor--primary);
+    }
+  }
+
+  & .themeChoice {
+    display: grid;
+    place-items: center;
+    inline-size: var(--_size);
+    block-size: var(--_size);
+    z-index: 2;
+    transition: color 250ms cubic-bezier(0.65, 0, 0.35, 1);
+
+    > svg {
+    }
+
+    > input {
+      z-index: 1;
+    }
+  }
+
+  & .currentChoice {
+    content: "";
+    position: absolute;
+    inset-block-start: var(--_padding);
+    inset-inline-start: var(--_padding);
+    aspect-ratio: 1;
+    height: calc(100% - var(--_padding) * 2);
+    background: var(--_activeBackgroundColor);
+    color: var(--_activeColor);
+    border-radius: calc(var(--_radius) / 2);
+    pointer-events: none;
+    z-index: 1;
+    transform: translateX(0); /* Default position */
+    transition: translate 250ms cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  #themeSystem:checked ~ .themeChoice[for="themeSystem"] svg {
+    color: var(--_activeColor);
+  }
+
+  #themeLight:checked ~ .themeChoice[for="themeLight"] svg {
+    color: var(--_activeColor);
+  }
+
+  #themeDark:checked ~ .themeChoice[for="themeDark"] svg {
+    color: var(--_activeColor);
+  }
+}
+
+.ThemeSwitch input:nth-of-type(2):checked ~ .currentChoice {
+  translate: calc(100% + var(--_padding));
+}
+.ThemeSwitch input:nth-of-type(3):checked ~ .currentChoice {
+  translate: calc(200% + var(--_padding) * 2);
+}
+</style>

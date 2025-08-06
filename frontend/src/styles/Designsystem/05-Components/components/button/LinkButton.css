@@ -1,0 +1,197 @@
+/* prettier-ignore */
+:where(.button) {
+  --_fontFamily: var(--fontFamily--heading);
+  --_fontWeight: 700;
+  --_lineHeight: 1.2;
+  --_borderRadius: 0.35em;
+  --_borderWidth: var(--button--borderWidth);
+
+  /* generic styles */
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: var(--_buttonColumns, auto);
+  grid-template-areas: var(--_buttonAreas, "text");
+  align-items: center;
+
+  padding-block: var(--_paddingBlock);
+  padding-inline: var(--_paddingInline);
+
+  border-radius: var(--_borderRadius);
+  border-width: var(--_borderWidth);
+  border-style: solid;
+
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  
+  box-sizing: border-box;
+  cursor: pointer;
+
+  /* Default states */
+  &:hover,
+  &[data-test-state="hover"] {
+    /* hover css */
+  }
+
+  &:active,
+  &[data-test-state="active"] {
+    /* active css */
+  }
+
+  /* Remove border/outline for non keyboard interaction */
+  &:focus:not(:focus-visible) {
+    outline: 0;
+  }
+
+  /* Keyboard interaction */
+  &:focus-visible,
+  &[data-test-state="focus"] {
+    outline-width: 2px;
+    outline-style: var(--focus--outlineStyle);
+    outline-color: var(--focus--outlineColor--primary);
+    outline-offset: 3px;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  /* Sizes */
+  &[data-size="small"] {
+    --_iconSize: 1.125rem;
+    --_iconMargin: 0.5rem;
+    --_fontSize: 0.85rem;
+    --_paddingBlock: 0.5rem;
+    --_paddingInline: 0.95em;
+  }
+
+  &[data-size="medium"] {
+    --_iconSize: 1.5rem;
+    --_iconMargin: 0.75rem;
+    --_fontSize: 1.125rem;
+    --_paddingBlock: 0.75rem;
+    --_paddingInline: 1.125em;
+  }
+
+  &[data-size="large"] {
+    --_iconSize: 1.75rem;
+    --_iconMargin: 1rem;
+    --_fontSize: 1.4rem;
+    --_paddingBlock: 1rem;
+    --_paddingInline: 1.5rem;
+  }
+
+  /* Styles */
+  &[data-type="primary"] {
+    border-color: var(--button--theme--borderColor--primary, var(--button--borderColor--primary));
+    background-color: var(--theme--button--backgroundColor--primary, var(--button--backgroundColor--primary));
+    color: var(--button--theme--color--primary, var(--button--color--primary));
+  }
+
+  &[data-type="secondary"] {
+    border-color: var(--button--theme--borderColor--secondary, var(--button--borderColor--secondary));
+    background-color: var(--button--theme--backgroundColor--secondary, var(--button--backgroundColor--secondary));
+    color: var(--button--theme--color--secondary, var(--button--color--secondary));
+  }
+
+  &[data-style="tertiary"] {
+  }
+
+  &:not([data-icon-position]) {
+    --_buttonColumns: auto;
+    --_buttonAreas: "text";
+  }
+
+  &[data-icon-position="start"] {
+    --_buttonColumns: auto 1fr;
+    --_buttonAreas: "icon text";
+    --_marginEnd: var(--_iconMargin);
+
+    gap: var(--_marginEnd);
+  }
+
+  &[data-icon-position="end"] {
+    --_buttonColumns: 1fr auto;
+    --_buttonAreas: "text icon";
+    --_marginStart: var(--_iconMargin);
+
+    gap: var(--_marginStart);
+  }
+
+  & > .buttonText {
+    /* prettier-ignore */
+    --_effectiveLineHeight: calc(var(--_fontSize) * var(--_lineHeight));
+    --_marginBlock: calc((var(--_fontSize) - var(--_effectiveLineHeight)) / 2);
+
+    position: relative;
+    grid-area: text;
+    font-size: var(--_fontSize);
+    font-family: var(--_fontFamily);
+    font-weight: var(--_fontWeight);
+    line-height: var(--_lineHeight);
+    /* negative margin compensating for line-height above and below while still keeping line-eight inside the button text */
+    margin-block: var(--_marginBlock);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  & > .buttonIcon {
+    display: inline;
+    block-size: var(--_iconSize);
+    inline-size: auto;
+    width: auto;
+    max-width: fit-content;
+    position: relative;
+    /* force icon to not take up any height */
+/*     margin-block: calc(-1 * (var(--_iconSize) - 1px) / 2); */
+
+    margin-block: calc((var(--_iconSize) / 2 ) * -1);
+  }
+}
+
+/* Developer debug styles here: */
+:where(.button[data-test-state="debug"]) {
+  &::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block-start: 0;
+    width: 100%;
+    height: var(--_paddingBlock);
+    background-color: rgba(64, 190, 64, 0.2);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    width: 100%;
+    height: var(--_paddingBlock);
+    background-color: rgba(64, 190, 64, 0.2);
+  }
+
+  & > .buttonText {
+    position: relative;
+    outline: 0.0625rem dashed rgba(0, 255, 0, 0.703);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      inset-block: 0;
+
+      /* Show the height of the text after line-height compensation */
+      height: calc(
+        100% - (2 * var(--_marginAdjustment))
+      ); /* Subtract top & bottom */
+      transform: translateY(var(--_marginAdjustment)); /* Shift it down */
+
+      width: 100%;
+      background-color: rgba(223, 79, 31, 0.2);
+      z-index: 0;
+    }
+  }
+}

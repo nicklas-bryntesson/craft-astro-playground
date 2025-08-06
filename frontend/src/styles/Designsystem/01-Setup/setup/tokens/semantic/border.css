@@ -1,0 +1,11 @@
+@layer tokens.semantic.border {
+  :where(:root) {
+    /* border stuff */
+    --borderStyle: solid;
+    --borderThickness: var(--SITE--BORDER-THICKNESS);
+
+    @media (prefers-contrast: more) {
+      --borderThickness: var(--SITE--BORDER-THICKNESS--CONTRAST);
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{# Fallback for browsers without JavaScript #}
+<noscript>
+	<style>
+		{# css fixes if browser does not have js #}
+	</style>
+</noscript>
+
+<script>
+	document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));
+</script>

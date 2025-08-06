@@ -17,15 +17,11 @@ const isActiveOrChild = (pageUri: string) => {
 const isActive = (uri: string) => currentPath === `/${uri}`;
 ---
 
-<nav class="sm:basis-2/3 grow-1" aria-label="Primary">
-  <ul class="sm:flex sm:justify-end">
+<nav class="" aria-label="Primary">
+  <ul class="">
     <li>
       <a 
         href="/blog" 
-        class:list={[
-          "block p-2 hover:underline text-red-600 hover:text-red-600",
-          { active: isActive('blog') }
-        ]}
         aria-current={isActive('blog') ? 'page' : null}
       >
         Blog
@@ -34,10 +30,6 @@ const isActive = (uri: string) => currentPath === `/${uri}`;
     <li>
       <a 
         href="/guestbook" 
-        class:list={[
-          "block p-2 hover:underline text-red-600 hover:text-red-600",
-          { active: isActive('guestbook') }
-        ]}
         aria-current={isActive('guestbook') ? 'page' : null}
       >
         Guestbook
@@ -47,24 +39,16 @@ const isActive = (uri: string) => currentPath === `/${uri}`;
       <li>
         <a 
           href={`/${page.uri}`}
-          class:list={[
-            "block p-2 hover:underline text-red-600 hover:text-red-600",
-            { active: isActive(page.uri) }
-          ]}
           aria-current={isActive(page.uri) ? 'page' : null}
         >
           {page.title}
         </a>
         {page.children && page.children.length > 0 && isActiveOrChild(page.uri) && (
-          <ul class="pl-4">
+          <ul>
             {page.children.map((child: Page) => (
               <li>
                 <a 
                   href={`/${child.uri}`}
-                  class:list={[
-                    "block p-2 hover:underline text-red-600 hover:text-red-600",
-                    { active: isActive(child.uri) }
-                  ]}
                   aria-current={isActive(child.uri) ? 'page' : null}
                 >
                   {child.title}
@@ -79,7 +63,32 @@ const isActive = (uri: string) => currentPath === `/${uri}`;
 </nav>
 
 <style>
-  .active {
+nav {
+  flex: 1;
+}
+
+nav > ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  list-style: none;
+  padding-inline-start: 0;
+  margin-inline-end: 1rem;
+}
+
+nav > ul > li {
+  display: inline-block;
+}
+
+nav > ul > li > a {
+  padding-inline: 0.4rem;
+  padding-block: 0.25rem;
+  font-family: var(--fontFamily--heading);
+  text-decoration: none;
+  color: var(--body--color);
+
+  &[aria-current="page"] {
     font-weight: bold;
   }
+}
 </style> 

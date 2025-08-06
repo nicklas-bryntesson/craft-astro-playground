@@ -1,0 +1,4 @@
+/* prettier-ignore */
+[data-theme="golden"] {
+    --theme--button--backgroundColor--primary: red;
+}

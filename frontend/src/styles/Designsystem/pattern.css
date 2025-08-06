@@ -1,0 +1,84 @@
+/* COLOR TOKEN FACTORY PATTERN */
+
+/* Base token definitions */
+
+/* prettier-ignore */
+:where(:root) {
+  /* light - primary */
+  --button--backgroundColor--primary--light: var(--COLOR--B50);
+
+  /* light - primary - contrast */
+  --button--backgroundColor--primary--light--contrast: var(--COLOR--N95);
+
+  /* Dark - primary */
+  --button--backgroundColor--primary--dark: var(--COLOR--B60);
+
+  /* Dark - primary - contrast */
+  --button--backgroundColor--primary--dark--contrast: var(--COLOR--N00);
+}
+
+/* Default light mode */
+
+/* prettier-ignore */
+:where(:root:not([data-theme])) {
+    color-scheme: light;
+
+    --button--backgroundColor--primary: var(--button--backgroundColor--primary--light);
+}
+
+/* System preference dark mode (when no explicit theme is set) */
+
+/* prettier-ignore */
+@media (prefers-color-scheme: dark) {
+    :where(:root:not([data-theme])) {
+        color-scheme: dark;
+
+        --button--backgroundColor--primary: var(--button--backgroundColor--primary--dark);
+    }
+}
+
+/* Explicit light theme setting */
+/* prettier-ignore */
+:where([data-theme="light"]) {
+    color-scheme: light;
+
+    --button--backgroundColor--primary: var(--button--backgroundColor--primary--light);
+}
+
+/* Explicit dark theme setting */
+
+/* prettier-ignore */
+:where([data-theme="dark"]) {
+    color-scheme: dark;
+
+    --button--backgroundColor--primary: var(--button--backgroundColor--primary--dark);
+}
+
+/* System preference high contrast mode */
+
+/* prettier-ignore */
+@media (prefers-contrast: more) {
+    :where(:root:not([data-theme])) {
+
+        --button--backgroundColor--primary: var(--button--backgroundColor--primary--light--contrast);
+    }
+
+    /* System preference high contrast + dark mode */
+    @media (prefers-color-scheme: dark) {
+        :where(:root:not([data-theme])) {
+
+        --button--backgroundColor--primary: var(--button--backgroundColor--primary--dark--contrast);
+        }
+    }
+
+    /* Explicit light theme with high contrast preference */
+    :where([data-theme="light"]) {
+
+        --button--backgroundColor--primary: var(--button--backgroundColor--primary--light--contrast);
+    }
+
+    /* Explicit dark theme with high contrast preference */
+    :where([data-theme="dark"]) {
+        --button--backgroundColor--primary: var(--button--backgroundColor--primary--dark--contrast);
+    }
+}

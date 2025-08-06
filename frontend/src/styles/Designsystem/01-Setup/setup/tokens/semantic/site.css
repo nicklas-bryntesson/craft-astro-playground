@@ -1,0 +1,22 @@
+@layer tokens.semantic.site {
+  /* Mobile: Below 780px (48.74rem) */
+  @media (max-width: 48.74rem) {
+    :where(:root) {
+      --sitePadding: var(--SITEPADDING--MOBILE);
+    }
+  }
+
+  /* Tablet: 780px (48.75rem) – 1199px (74.99rem) */
+  @media (min-width: 48.75rem) and (max-width: 74.99rem) {
+    :where(:root) {
+      --sitePadding: var(--SITEPADDING--TABLET);
+    }
+  }
+
+  /* Desktop: 1200px (75rem) and above */
+  @media (min-width: 75rem) {
+    :where(:root) {
+      --sitePadding: var(--SITEPADDING--DESKTOP);
+    }
+  }
+}

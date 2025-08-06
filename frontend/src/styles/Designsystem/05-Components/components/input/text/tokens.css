@@ -1,0 +1,98 @@
+/* COLOR TOKEN FACTORY */
+
+/* prettier-ignore */
+:root {
+
+    
+    /* Default */
+    --input--paddingInlineStart: 0.5rem;
+    --input--paddingInlineEnd: 0.5rem;
+    
+    
+    /* LIGHT */
+    --input--backgroundColor--light: var(--COLOR--N05);
+    --input--borderColor--light: var(--COLOR--N30);
+    --input--color--primary--light: var(--COLOR--N95);
+    --input--color--secondary--light: var(--COLOR--N70);
+
+    /* DARK */
+    --input--backgroundColor--dark: var(--COLOR--N90);
+    --input--borderColor--dark: var(--COLOR--N75);
+    --input--color--primary--dark: var(--COLOR--N05);
+    --input--color--secondary--dark: var(--COLOR--N25);
+
+    --input--backgroundColor--light--contrast: transparent;
+    --input--borderColor--light--contrast:: var(--COLOR---N95);
+    --input--color--primary--light--contrast:: var(--COLOR---N95);
+    --input--color--secondary--light--contrast:: var(--COLOR---N95);
+
+
+    /* DARK CONSTRAST */
+    --input--backgroundColor--dark--contrast: transparent;
+    --input--borderColor--dark--contrast:: var(--COLOR--N00);
+    --input--color--primary--dark--contrast:: var(--COLOR--N05);
+    --input--color--secondary--dark--contrast:: var(--COLOR--N00);
+}
+
+/* prettier-ignore */
+:root {
+    color-scheme: light;
+
+    --input--backgroundColor:                   var(--input--backgroundColor--light);
+    --input--borderColor:                       var(--input--borderColor--light);
+    --input--color--primary:                    var(--input--color--primary--light);
+    --input--color--secondary:                  var(--input--color--secondary--light);
+
+}
+
+/* prettier-ignore */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+
+        --input--backgroundColor:               var(--input--backgroundColor--dark);
+        --input--borderColor:                   var(--input--borderColor--dark);
+        --input--color--primary:                var(--input--color--primary--dark);
+        --input--color--secondary:              var(--input--color--secondary--dark);
+    }
+}
+
+/* prettier-ignore */
+[data-theme="light"] {
+    color-scheme: light;
+
+    --input--backgroundColor:                   var(--input--backgroundColor--light);
+    --input--borderColor:                       var(--input--borderColor--light);
+    --input--color--primary:                    var(--input--color--primary--light);
+    --input--color--secondary:                  var(--input--color--secondary--light);
+}
+
+/* prettier-ignore */
+[data-theme="dark"] {
+    color-scheme: dark;
+
+    --input--backgroundColor:                   var(--input--backgroundColor--dark);
+    --input--borderColor:                       var(--input--borderColor--dark);
+    --input--color--primary:                    var(--input--color--primary--dark);
+    --input--color--secondary:                  var(--input--color--secondary--dark);
+}
+
+/* prettier-ignore */
+@media (prefers-contrast: more) {
+    :root {
+        --input--backgroundColor:               var(--input--backgroundColor--light--contrast);
+        --input--borderColor:                   var(--input--borderColor--light--contrast);
+        --input--color--primary:                var(--input--color--primary--light--contrast);
+        --input--color--secondary:              var(--input--color--secondary--light--contrast);
+
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --input--backgroundColor:           var(--input--backgroundColor--dark--contrast);
+            --input--borderColor:               var(--input--borderColor--dark--contrast);
+            --input--color--primary:            var(--input--color--primary--dark--contrast);
+            --input--color--secondary:          var(--input--color--secondary--dark--contrast);
+        }
+    }
+}

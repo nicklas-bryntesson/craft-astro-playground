@@ -81,3 +81,15 @@ const hasNextPrev = post.next || post.prev;
 </Layout>
 
 <Fragment set:html={PreviewScript({ isPreview: preview.isPreview })} />
+
+
+<style scoped>
+  :where(article) {
+    display: grid;
+    grid-template-columns: var(--centerGrid--columns);
+
+    & > * {
+      grid-column: main;
+    }
+  }
+</style>

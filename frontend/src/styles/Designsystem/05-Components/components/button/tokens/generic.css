@@ -1,0 +1,5 @@
+:where(:root) {
+  --button--fontFamily: var(--fontFamily--heading);
+  --button--fontWeight: 700;
+  --button--borderWidth: 1px;
+}

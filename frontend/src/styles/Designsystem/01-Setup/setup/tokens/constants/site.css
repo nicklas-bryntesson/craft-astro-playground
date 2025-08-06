@@ -1,0 +1,30 @@
+@layer tokens.constants.site {
+  :where(:root) {
+    --SITEPADDING--MOBILE: 16px;
+    --SITEPADDING--MOBILE--NEGATIVE: calc(--SITEPADDING--MOBILE * -1);
+
+    --SITEPADDING--TABLET: clamp(1rem, -0.269rem + 5.64vw, 6.5rem);
+    --SITEPADDING--TABLET--NEGATIVE: calc(--SITEPADDING--TABLET * -1);
+
+    --SITEPADDING--DESKTOP: 6.5rem;
+    --SITEPADDING--DESKTOP--NEGATIVE: var(--SITEPADDING--DESKTOP * -1);
+
+    --MOBILE--BREAKPOINT: 48.74rem;
+    --DESKTOP--BREAKPOINT: 75rem;
+
+    --MAXWIDTH--SITE: 106rem;
+    --MAXWIDTH--CONTENT: 64rem;
+
+    --GRID--GAP--MOBILE: 0; /* Needed to prevent 12 gap's beeing wider that the mobile screen */
+    --GRID--GAP--DESKTOP: 2rem;
+
+    --SITE--BORDER-RADIUS--OUTER--MOBILE: 0.75rem;
+    --SITE--BORDER-RADIUS--OUTER--DESKTOP: 0.75rem;
+
+    --SITE--BORDER-RADIUS--INNER--MOBILE: 0.4rem;
+    --SITE--BORDER-RADIUS--INNER--DESKTOP: 0.4rem;
+
+    --SITE--BORDER-THICKNESS: 0.0625rem;
+    --SITE--BORDER-THICKNESS--CONTRAST: 0.125rem;
+  }
+}

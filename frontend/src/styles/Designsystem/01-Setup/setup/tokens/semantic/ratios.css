@@ -1,0 +1,10 @@
+@layer tokens.semantic.ratios {
+  :where(:root) {
+    --aspectRatio--square: 1;
+    --aspectRatio--landscape: 4/3;
+    --aspectRatio--portrait: 3/4;
+    --aspectRatio--widescreen: 16/9;
+    --aspectRatio--ultrawide: 18/5;
+    --aspectRatio--golden: 1.618/1;
+  }
+}

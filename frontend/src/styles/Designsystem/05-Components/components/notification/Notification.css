@@ -1,0 +1,74 @@
+:where(.Notification) {
+  --_borderWidth: var(--notification--borderWidth);
+  --_iconSize: var(--notification--iconSize);
+
+  padding: 1rem;
+  background-color: var(--_backgroundColor);
+  border-radius: 0.3rem;
+  border-inline-start: var(--_borderWidth) solid var(--_accentColor);
+  margin-block-end: 2rem;
+  max-inline-size: 50rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 2rem;
+
+  > .icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    > svg {
+      color: var(--_iconColor);
+      inline-size: var(--_iconSize);
+      block-size: var(--_iconSize);
+    }
+  }
+
+  > .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    > strong {
+      color: var(--_colorPrimary);
+      font-family: var(--fontFamily--heading);
+      margin-block: 0;
+    }
+  }
+
+  &[data-type="default"] {
+    --_accentColor: var(--notification--borderColor--default);
+    --_backgroundColor: var(--notification--backgroundColor--default);
+    --_iconColor: var(--notification--borderColor--default);
+    --_colorPrimary: var(--notification--color--primary--default);
+  }
+
+  &[data-type="info"] {
+    --_accentColor: var(--notification--borderColor--info);
+    --_iconColor: var(--notification--borderColor--info);
+    --_backgroundColor: var(--notification--backgroundColor--info);
+    --_colorPrimary: var(--notification--color--primary--info);
+  }
+
+  &[data-type="success"] {
+    --_accentColor: var(--notification--borderColor--success);
+    --_iconColor: var(--notification--borderColor--success);
+    --_backgroundColor: var(--notification--backgroundColor--success);
+    --_colorPrimary: var(--notification--color--primary--success);
+  }
+
+  &[data-type="caution"] {
+    --_accentColor: var(--notification--borderColor--caution);
+    --_iconColor: var(--notification--borderColor--caution);
+    --_backgroundColor: var(--notification--backgroundColor--caution);
+    --_colorPrimary: var(--notification--color--primary--caution);
+  }
+
+  &[data-type="danger"] {
+    --_accentColor: var(--notification--borderColor--danger);
+    --_iconColor: var(--notification--borderColor--danger);
+    --_backgroundColor: var(--notification--backgroundColor--danger);
+    --_colorPrimary: var(--notification--color--primary--danger);
+  }
+}

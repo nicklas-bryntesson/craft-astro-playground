@@ -1,0 +1,19 @@
+<a href="#mainContent" class="SkipLink">Skip to main content</a>
+
+<style>
+:where(.SkipLink) {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+
+  &:focus-within {
+    inset-block-start: 1rem;
+    inset-inline-start: 1rem;
+    inline-size: auto;
+    block-size: auto;
+    clip: auto;
+    clip-path: none;
+  }
+}
+</style>

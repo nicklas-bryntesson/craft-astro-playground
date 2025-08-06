@@ -1,0 +1,22 @@
+.testimonialBlock {
+  background-color: var(--header--backgroundColor);
+  grid-column: 1/-1;
+  align-items: center;
+  padding-block: 3rem;
+  margin-block: 2rem;
+  display: grid;
+  grid-template-columns: var(--breakoutGrid--columns);
+  gap: var(--breakoutGrid--gap);
+
+  > svg {
+    grid-column: 3/4;
+  }
+
+  & > .quote {
+    grid-column: 5/11;
+
+    p {
+      font-size: 4rem;
+    }
+  }
+}

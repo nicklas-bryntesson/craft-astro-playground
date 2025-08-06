@@ -1,0 +1,41 @@
+{% set allowedThemes = craft.app.config.custom.allowedComponentThemes %}
+
+{% if theme not in allowedThemes %}
+    <div class="unsupportedContainer" role="alert">
+        <p><strong>Error:</strong> Invalid theme .</p>
+        <p>Allowed types: {{ allowedTypes|join(', ') }}</p>
+    </div>
+{% else %}
+
+<article class="Card" data-theme="{{ theme }}">
+
+    <header>
+        <figure>
+            <svg>
+                <use xlink:href="#icon-image"></use>
+            </svg>
+        </figure>
+        <h3>
+            {{ title }}
+        </h3>
+    </header>
+
+    <div class="content">
+        <p>{{ content|raw }}</p>
+    </div>
+
+    <footer>
+        {% if linkOneUrl is defined and linkOneUrl is not empty %}
+            {% include '_components/Button/_LinkButton.twig' with {
+                id: 'link-one',
+                href: linkOneUrl,
+                type: 'primary',
+                size: 'medium',
+                text: linkOneText
+            } %}
+        {% endif %}
+    </footer>
+        
+</article>
+
+{% endif %}

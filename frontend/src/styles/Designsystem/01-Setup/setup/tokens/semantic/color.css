@@ -1,0 +1,175 @@
+/* If we want to extrat brand colors, this is where... */
+
+:where(:root) {
+  color-scheme: light;
+
+  --body--backgroundColor: var(--COLOR--N15);
+  --body--color: var(--COLOR--N95);
+  --content--backgroundColor: var(--COLOR--N00);
+
+  --header--backgroundColor: var(--COLOR--N15);
+  --footer--backgroundColor: var(--COLOR--N15);
+
+  --text--primary: var(--COLOR--N90);
+  --text--secondary: var(--COLOR--N70);
+
+  --surface--primary: var(--COLOR--N00);
+  --surface--secondary: var(--COLOR--N10);
+
+  --borderColor--primary: var(--COLOR--N95);
+  --borderColor--secondary: var(--COLOR--N70);
+  --borderColor--tertiary: var(--COLOR--N20);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --body--backgroundColor: var(--COLOR--N90);
+    --body--color: var(--COLOR--N05);
+    --content--backgroundColor: var(--COLOR--N95);
+
+    --header--backgroundColor: var(--COLOR--N90);
+    --footer--backgroundColor: var(--COLOR--N90);
+
+    --text--primary: var(--COLOR--N00);
+    --text--secondary: var(--COLOR--N20);
+
+    --surface--primary: var(--COLOR--N90);
+    --surface--secondary: var(--COLOR--N80);
+
+    --borderColor--primary: var(--COLOR--N05);
+    --borderColor--secondary: var(--COLOR--N50);
+    --borderColor--tertiary: var(--COLOR--N85);
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: more) {
+  :root {
+    --body--backgroundColor: var(--COLOR--N00);
+    --body--color: var(--COLOR--N95);
+    --content--backgroundColor: var(--COLOR--N00);
+
+    --header--backgroundColor: var(--COLOR--N00);
+    --footer--backgroundColor: var(--COLOR--N00);
+
+    --text--primary: var(--COLOR--N95);
+    --text--secondary: var(--COLOR--N95);
+
+    --surface--primary: var(--COLOR--N00);
+    --surface--secondary: var(--COLOR--N00);
+
+    --borderColor--primary: var(--COLOR--N95);
+    --borderColor--secondary: var(--COLOR--N95);
+    --borderColor--tertiary: var(--COLOR--N95);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body--backgroundColor: var(--COLOR--N95);
+      --body--color: var(--COLOR--N00);
+      --content--backgroundColor: var(--COLOR--N95);
+
+      --header--backgroundColor: var(--COLOR--N95);
+      --footer--backgroundColor: var(--COLOR--N95);
+
+      --text--primary: var(--COLOR--N00);
+      --text--secondary: var(--COLOR--N00);
+
+      --surface--primary: var(--COLOR--N95);
+      --surface--secondary: var(--COLOR--N95);
+
+      --borderColor--primary: var(--COLOR--N00);
+      --borderColor--secondary: var(--COLOR--N00);
+      --borderColor--tertiary: var(--COLOR--N00);
+    }
+  }
+}
+
+[data-appearance="light"] {
+  color-scheme: light;
+
+  --body--backgroundColor: var(--COLOR--N15);
+  --body--color: var(--COLOR--N95);
+  --content--backgroundColor: var(--COLOR--N00);
+
+  --header--backgroundColor: var(--COLOR--N15);
+  --footer--backgroundColor: var(--COLOR--N15);
+
+  --text--primary: var(--COLOR--N90);
+  --text--secondary: var(--COLOR--N70);
+
+  --surface--primary: var(--COLOR--N00);
+  --surface--secondary: var(--COLOR--N10);
+
+  --borderColor--primary: var(--COLOR--N95);
+  --borderColor--secondary: var(--COLOR--N70);
+  --borderColor--tertiary: var(--COLOR--N20);
+}
+
+[data-appearance="dark"] {
+  color-scheme: dark;
+
+  --body--backgroundColor: var(--COLOR--N90);
+  --body--color: var(--COLOR--N05);
+  --content--backgroundColor: var(--COLOR--N95);
+
+  --header--backgroundColor: var(--COLOR--N90);
+  --footer--backgroundColor: var(--COLOR--N90);
+
+  --text--primary: var(--COLOR--N00);
+  --text--secondary: var(--COLOR--N20);
+
+  --surface--primary: var(--COLOR--N90);
+  --surface--secondary: var(--COLOR--N80);
+
+  --borderColor--primary: var(--COLOR--N05);
+  --borderColor--secondary: var(--COLOR--N50);
+  --borderColor--tertiary: var(--COLOR--N85);
+}
+
+/* Make sure contrast modes work here aswell */
+@media (prefers-contrast: more) {
+  [data-appearance="light"] {
+    color-scheme: light;
+
+    --body--backgroundColor: var(--COLOR--N00);
+    --body--color: var(--COLOR--N95);
+    --content--backgroundColor: var(--COLOR--N00);
+
+    --header--backgroundColor: var(--COLOR--N00);
+    --footer--backgroundColor: var(--COLOR--N00);
+
+    --text--primary: var(--COLOR--N95);
+    --text--secondary: var(--COLOR--N95);
+
+    --surface--primary: var(--COLOR--N00);
+    --surface--secondary: var(--COLOR--N00);
+
+    --borderColor--primary: var(--COLOR--N95);
+    --borderColor--secondary: var(--COLOR--N95);
+    --borderColor--tertiary: var(--COLOR--N95);
+  }
+
+  [data-appearance="dark"] {
+    color-scheme: dark;
+
+    --body--backgroundColor: var(--COLOR--N95);
+    --body--color: var(--COLOR--N00);
+    --content--backgroundColor: var(--COLOR--N95);
+
+    --header--backgroundColor: var(--COLOR--N95);
+    --footer--backgroundColor: var(--COLOR--N95);
+
+    --text--primary: var(--COLOR--N00);
+    --text--secondary: var(--COLOR--N00);
+
+    --surface--primary: var(--COLOR--N95);
+    --surface--secondary: var(--COLOR--N95);
+
+    --borderColor--primary: var(--COLOR--N00);
+    --borderColor--secondary: var(--COLOR--N00);
+    --borderColor--tertiary: var(--COLOR--N00);
+  }
+}

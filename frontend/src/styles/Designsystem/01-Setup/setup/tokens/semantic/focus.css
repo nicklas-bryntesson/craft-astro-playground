@@ -1,0 +1,86 @@
+/* prettier-ignore */
+@layer tokens.semantic.focus {
+:where(:root) {
+
+    /* LIGHT */
+    --focus--outlineColor--primary--light: var(--COLOR--B50);
+    --focus--outlineStyle--light: solid;
+    
+    /* LIGHT CONTRAST */
+    --focus--outlineColor--primary--light--contrast: var(--COLOR--N95);
+    --focus--outlineStyle--light--contrast: dashed;
+  
+    /* DARK */
+    --focus--outlineColor--primary--dark: var(--COLOR--B50);
+    --focus--outlineStyle--dark: solid;
+  
+    /* DARK CONSTRAST */
+    --focus--outlineColor--primary--dark--contrast: var(--COLOR--N00);
+    --focus--outlineStyle--dark--contrast: dashed;
+  
+  }
+
+/* prettier-ignore */
+:where(:root) {
+    color-scheme: light;
+    --focus--outlineColor--primary:     var(--focus--outlineColor--primary--light);
+    --focus--outlineStyle:              var(--focus--outlineStyle--light);
+  }
+
+/* prettier-ignore */
+@media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --focus--outlineColor--primary:   var(--focus--outlineColor--primary--dark);
+      --focus--outlineStyle:            var(--focus--outlineStyle--dark);
+    }
+  }
+
+/* prettier-ignore */
+[data-appearance="light"] {
+    color-scheme: light;
+    --focus--outlineColor--primary:     var(--focus--outlineColor--primary--light);
+    --focus--outlineStyle:              var(--focus--outlineStyle--light);
+  }
+
+/* prettier-ignore */
+[data-appearance="dark"] {
+    color-scheme: dark;
+    --focus--outlineColor--primary:     var(--focus--outlineColor--primary--dark);
+    --focus--outlineStyle:              var(--focus--outlineStyle--dark);
+  }
+
+/* prettier-ignore */
+@media (prefers-contrast: more) {
+    :root {
+      --focus--outlineColor--primary:   var(--focus--outlineColor--primary--light--contrast);
+      --focus--outlineStyle:            var(--focus--outlineStyle--light--contrast);
+    }
+  
+    [data-appearance="light"] {
+      --focus--outlineColor--primary:   var(--focus--outlineColor--primary--light--contrast);
+      --focus--outlineStyle:            var(--focus--outlineStyle--light--contrast);
+    }
+  }
+
+/* prettier-ignore */
+@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+    :root {
+      --focus--outlineColor--primary:   var(--focus--outlineColor--primary--dark--contrast);
+      --focus--outlineStyle:            var(--focus--outlineStyle--dark--contrast);
+    }
+  
+    [data-appearance="dark"] {
+      --focus--outlineColor--primary:   var(--focus--outlineColor--primary--dark--contrast);
+      --focus--outlineStyle:            var(--focus--outlineStyle--dark--contrast);
+    }
+  }
+
+/* prettier-ignore */
+@media (prefers-contrast: more) {
+    [data-appearance="dark"] {
+      --focus--outlineColor--primary:   var(--focus--outlineColor--primary--dark--contrast);
+      --focus--outlineStyle:            var(--focus--outlineStyle--dark--contrast);
+    }
+  }
+}

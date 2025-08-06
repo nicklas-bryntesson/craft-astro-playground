@@ -1,0 +1,32 @@
+/* prettier-ignore */
+:where(:root) {
+    --baseGrid--content--padding:       var(--sitePadding);
+    --baseGrid--content--maxWidth:      var(--MAXWIDTH--SITE);
+
+    --baseGrid--gap--mobile:            var(--GRID--GAP--MOBILE);
+    --baseGrid--gap--desktop:           var(--GRID--GAP--DESKTOP);
+
+    --baseGrid--columns--mobile: 1fr;
+    --baseGrid--columns--desktop: repeat(12, 1fr);
+}
+
+/* prettier-ignore */
+@media (max-width: 48.74rem) {
+    :where(:root) {
+        --baseGrid--columns: var(--baseGrid--columns--mobile);
+        --baseGrid--gap: var(--baseGrid--gap--mobile);
+    }
+}
+
+/* prettier-ignore */
+@media (min-width: 48.75rem) {
+    :where(:root) {
+        --baseGrid--columns: var(--baseGrid--columns--desktop);
+        --baseGrid--gap: var(--baseGrid--gap--desktop);
+    }
+}
+
+.baseGrid {
+  display: grid;
+  grid-template-columns: var();
+}

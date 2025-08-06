@@ -1,0 +1,17 @@
+/* 
+ * A centered grid with a fluid single content column.
+ */
+
+/* prettier-ignore */
+:where(:root) {
+    --centertGrid--content--padding:        var(--sitePadding); /* use global responsive variable. */
+    --centerGrid--content--maxWidth:        var(--MAXWIDTH--SITE);
+
+    --centerGrid--columns:                  [full-start] minmax(var(--centertGrid--content--padding), 1fr) [main-start] minmax(0, var(--centerGrid--content--maxWidth)) [main-end]minmax(var(--centertGrid--content--padding), 1fr) [full-end];
+}
+
+/* prettier-ignore */
+.centeredGrid {
+    display: grid;
+    grid-template-columns: var(--centerGrid--columns);
+}

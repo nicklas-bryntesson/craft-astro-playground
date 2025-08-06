@@ -1,0 +1,104 @@
+:where(.Card) {
+  --_borderRadius: var(--card--borderRadius--outer);
+  --_gap: var(--card--gap);
+  --_padding: var(--card--padding);
+
+  display: flex;
+  flex-direction: column;
+  background-color: var(--_backgroundColor);
+  border: 0.0625rem solid var(--_borderColor);
+  border-radius: var(--_borderRadius);
+  overflow: hidden;
+  padding-block-end: var(--_padding);
+
+  > header {
+    > figure {
+      aspect-ratio: var(--aspectRatio--golden);
+      background-color: var(--_borderColor);
+      margin-block-start: var(--_padding);
+      margin-inline: var(--_padding);
+      border-radius: var(--card--borderRadius--inner);
+      display: grid;
+      place-items: center;
+
+      > svg {
+        opacity: 0.2;
+        inline-size: 2.5rem;
+      }
+
+      & img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+      }
+    }
+
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+      margin-block-start: var(--_gap);
+      padding-inline: var(--_padding);
+      color: var(--_colorPrimary);
+
+      > * {
+        color: inherit;
+      }
+    }
+  }
+
+  & > .content {
+    padding-inline: var(--_padding);
+    margin-block-start: var(--_gap);
+
+    > p {
+      color: var(--_colorSecondary);
+
+      &:last-of-type {
+        margin-block-end: 0;
+      }
+    }
+  }
+
+  > footer {
+    margin-block-start: auto;
+    padding-block-start: var(--_gap);
+    padding-inline: var(--_padding);
+  }
+
+  &[data-theme="default"] {
+    --_colorPrimary: var(--card--color--primary--default);
+    --_colorSecondary: var(--card--color--secondary--default);
+    --_backgroundColor: var(--card--backgroundColor--default);
+    --_borderColor: var(--card--borderColor--default);
+  }
+
+  &[data-theme="pinkish"] {
+    /* this component */
+    --_colorPrimary: var(--card--color--primary--pinkish);
+    --_colorSecondary: var(--card--color--secondary--pinkish);
+    --_backgroundColor: var(--card--backgroundColor--pinkish);
+    --_borderColor: var(--card--borderColor--pinkish);
+
+    /* other components inside */
+    --button--theme--color--primary: var(--button--primary--color--pinkish);
+    --button--theme--backgroundColor--primary: var(
+      --button--primary--backgroundColor--pinkish
+    );
+    --button--theme--borderColor--primary: var(
+      --button--primary--borderColor--pinkish
+    );
+  }
+
+  /* prettier-ignore */
+  &[data-theme="golden"] {
+      --_colorPrimary: var(--card--color--primary--golden);
+      --_colorSecondary: var(--card--color--secondary--golden);
+      --_backgroundColor: var(--card--backgroundColor--golden);
+      --_borderColor: var(--card--borderColor--golden);
+  
+      --button--theme--backgroundColor--primary: var(--card--accentColor--golden);
+      --button--theme--borderColor--primary: var(--card--accentColor--golden);
+    }
+}

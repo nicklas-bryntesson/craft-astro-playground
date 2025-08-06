@@ -1,0 +1,17 @@
+html {
+  color: var(--body--color);
+  background-color: var(--body--backgroundColor);
+  transition:
+    background-color 0.125s,
+    color 0.125s;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  block-size: 100%;
+  min-block-size: 100vh;
+}
+
+.entry {
+}

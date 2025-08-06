@@ -1,0 +1,6 @@
+@layer tokens.constants.size {
+  :where(:root) {
+    --SIZE--ROOTUNIT--MOBILE: 0.75rem;
+    --SIZE--ROOTUNIT--DESKTOP: 1rem; /* 16px */
+  }
+}

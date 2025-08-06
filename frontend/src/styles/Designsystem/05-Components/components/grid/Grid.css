@@ -1,0 +1,39 @@
+ol.Grid,
+ul.Grid {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.Grid {
+  --_gap: 1rem;
+
+  inline-size: 100%;
+  display: grid;
+  grid-template-columns: var(--_gridTemplateColumns);
+  gap: var(--_gap);
+  margin-block-end: var(--_gap);
+
+  &[data-columns="2"] {
+    --_gridTemplateColumns: 1fr 1fr;
+  }
+
+  &[data-columns="3"] {
+    --_gridTemplateColumns: 1fr 1fr 1fr;
+  }
+
+  &[data-columns="4"] {
+    --_gridTemplateColumns: 1fr 1fr 1fr 1fr;
+  }
+
+  &[data-column-height="auto"] {
+    > li {
+    }
+  }
+
+  &[data-column-height="equal"] {
+    > li {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

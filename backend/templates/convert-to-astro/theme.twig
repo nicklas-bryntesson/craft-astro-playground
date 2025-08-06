@@ -1,0 +1,67 @@
+<script>
+    const storageKey = 'theme-preference';
+    const theme = {
+        // Retrieve the saved preference or default to system preference
+        value: localStorage.getItem(storageKey) ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    };
+    // Reflect theme preference on the DOM
+    const reflectPreference = () => {
+        if (theme.value === 'system') {
+            // REMOVE the `data-appearance` attribute when 'system' is selected
+            document.firstElementChild.removeAttribute('data-appearance');
+        } else {
+            // SET the `data-appearance` attribute for 'light' or 'dark'
+            document.firstElementChild.setAttribute('data-appearance', theme.value);
+        }
+        
+        // Update radio buttons
+        const systemRadio = document.querySelector('#themeSystem');
+        const lightRadio = document.querySelector('#themeLight');
+        const darkRadio = document.querySelector('#themeDark');
+        if (systemRadio && lightRadio && darkRadio) {
+            systemRadio.checked = (theme.value === 'system');
+            lightRadio.checked = (theme.value === 'light');
+            darkRadio.checked = (theme.value === 'dark');
+        }
+    };
+    // Save the theme choice to localStorage and update the DOM
+    const setPreference = () => {
+        localStorage.setItem(storageKey, theme.value);
+        reflectPreference();
+    };
+    // Listen for system-level preference changes
+    const handleSystemChange = ({ matches: isDark }) => {
+        if (theme.value === 'system') {
+            // Reflect system theme directly
+            document.firstElementChild.setAttribute('data-appearance', isDark ? 'dark' : 'light');
+        }
+    };
+    const setupEventListeners = () => {
+        const systemRadio = document.querySelector('#themeSystem');
+        const lightRadio = document.querySelector('#themeLight');
+        const darkRadio = document.querySelector('#themeDark');
+        // Add event listeners for radio button changes
+        if (systemRadio && lightRadio && darkRadio) {
+            systemRadio.addEventListener('change', () => {
+                theme.value = 'system';
+                setPreference();
+            });
+            lightRadio.addEventListener('change', () => {
+                theme.value = 'light';
+                setPreference();
+            });
+            darkRadio.addEventListener('change', () => {
+                theme.value = 'dark';
+                setPreference();
+            });
+        }
+        // Add listener for dark mode system preference changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleSystemChange);
+    };
+    // Initialize on page load
+    window.onload = () => {
+        reflectPreference();
+        setupEventListeners();
+    };
+</script>

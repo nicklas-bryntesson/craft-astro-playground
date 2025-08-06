@@ -1,0 +1,19 @@
+
+@import '01-Setup/index.css';
+
+@import '02-Base/index.css';
+
+@import '03-Layout/index.css';
+
+@import 'prose.css';
+
+
+:where(.screenReaderText) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  block-size: 1px;
+  inline-size: 1px;
+  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+}

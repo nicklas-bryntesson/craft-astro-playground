@@ -3,8 +3,11 @@ import { craftClient } from '../lib/graphql';
 import { GLOBALS_QUERY } from '../queries/globals.mjs';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SvgSprite from '../components/SvgSprite.astro'
 import ScrollObserver from '../components/ScrollObserver.astro';
-import '../styles/tailwind.css';
+import ThemeManager from '../components/ThemeManager.astro';
+
+import '../styles/Designsystem/style.css';
 
 const { title } = Astro.props;
 const data = await craftClient.query(GLOBALS_QUERY);
@@ -23,6 +26,7 @@ const currentPath = Astro.url.pathname;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		<ThemeManager />
 	</head>
 	<body>
 		<div 
@@ -36,29 +40,29 @@ const currentPath = Astro.url.pathname;
 				{siteName}
 				logo={globals?.logo}
 			/>
-			<div class="pageContent">
+			<div class="mainContainer">
 				<slot />
 			</div>
 			<Footer address={globals?.address[0]} />
 		</div>
+		<SvgSprite />
 		<ScrollObserver />
 	</body>
 </html>
 
 <style scoped>
-	body {
-		min-height: 100vh;
-		min-block-size: 100dvh;
-		background-color: white;
-	}
-
-	#app {
-		display: flex;
-		flex-direction: column;
-		background-color: hsl(0, 0%, 100%);
-	}
-
-	.pageContent {
-		flex-grow: 1;
-	}
+body {
+	min-height: 100vh;
+	min-block-size: 100dvh;
+}
+#app {
+	display: flex;
+	flex-direction: column;
+}
+.mainContainer {
+	flex-grow: 1;
+	background-color: var(--content--backgroundColor);
+	transition: background-color 0.125s, color 0.125s;
+	flex: 1;
+}
 </style>

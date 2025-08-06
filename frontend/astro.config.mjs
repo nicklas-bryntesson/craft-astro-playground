@@ -2,7 +2,6 @@
 import { defineConfig } from 'astro/config';
 import node from '@astrojs/node';
 import vue from '@astrojs/vue';
-import tailwindcss from '@tailwindcss/vite';
 import { loadEnv } from 'vite';
 
 const env = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), '');
@@ -23,7 +22,7 @@ export default defineConfig({
     port: 4321,
   },
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [],
     server: {
       hmr: {
         protocol: 'wss',

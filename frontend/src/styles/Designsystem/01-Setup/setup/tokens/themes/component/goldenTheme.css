@@ -1,0 +1,123 @@
+:where(:root) {
+  /* Light */
+  --golden--surface--primary--light: yellow;
+  --golden--button--backgroundColor--primary--light: hotpink;
+  --golden--input--borderColor--focus--light: grey;
+  /* Light - contrast */
+  --golden--surface--primary--light--contrast: lime;
+  --golden--button--backgroundColor--primary--light--contrast: red;
+  --golden--input--borderColor--focus--light--contrast: black;
+  /* Dark */
+  --golden--surface--primary--dark: gold;
+  --golden--button--backgroundColor--primary: rebeccapurple;
+  --golden--input--borderColor--focus: lightgrey;
+  /* Dark  - contrast */
+  --golden--surface--primary--dark--contrast: darkgreen;
+  --golden--button--backgroundColor--primary--dark--contrast: firebrick;
+  --golden--input--borderColor--focus--dark--contrast: white;
+}
+
+/* Default light mode */
+
+:where(:root:not([data-theme])) {
+  color-scheme: light;
+  --golden--surface--primary: var(--golden--surface--primary--light);
+  --golden--button--backgroundColor--primary: var(
+    --golden--button--backgroundColor--primary--light
+  );
+  --golden--input--borderColor--focus--light: var(
+    --golden--input--borderColor--focus--light
+  );
+}
+
+/* System preference dark mode (when no explicit theme is set) */
+@media (prefers-color-scheme: dark) {
+  :where(:root:not([data-theme])) {
+    color-scheme: dark;
+    --golden--surface--primary: var(--golden--surface--primary--dark);
+    --golden--button--backgroundColor--primary: var(
+      --golden--button--backgroundColor--primary--dark
+    );
+    --golden--input--borderColor--focus--light: var(
+      --golden--input--borderColor--focus--dark
+    );
+  }
+}
+
+/* Explicit light theme setting */
+:where([data-theme="light"]) {
+  color-scheme: light;
+  --golden--surface--primary: var(--golden--surface--primary--light);
+  --golden--button--backgroundColor--primary: var(
+    --golden--button--backgroundColor--primary--light
+  );
+  --golden--input--borderColor--focus--light: var(
+    --golden--input--borderColor--focus--light
+  );
+}
+
+/* Explicit dark theme setting */
+:where([data-theme="dark"]) {
+  color-scheme: dark;
+  --golden--surface--primary: var(--golden--surface--primary--dark);
+  --golden--button--backgroundColor--primary: var(
+    --golden--button--backgroundColor--primary--dark
+  );
+  --golden--input--borderColor--focus--light: var(
+    --golden--input--borderColor--focus--dark
+  );
+}
+
+/* System preference high contrast mode */
+@media (prefers-contrast: more) {
+  :where(:root:not([data-theme])) {
+    --golden--surface--primary: var(
+      --golden--surface--primary--light--contrast
+    );
+    --golden--button--backgroundColor--primary: var(
+      --golden--button--backgroundColor--primary--light--contrast
+    );
+    --golden--input--borderColor--focus--light: var(
+      --golden--input--borderColor--focus--light--contrast
+    );
+  }
+
+  /* System preference high contrast + dark mode */
+  @media (prefers-color-scheme: dark) {
+    :where(:root:not([data-theme])) {
+      --golden--surface--primary: var(
+        --golden--surface--primary--dark--contrast
+      );
+      --golden--button--backgroundColor--primary: var(
+        --golden--button--backgroundColor--primary--dark--contrast
+      );
+      --golden--input--borderColor--focus--light: var(
+        --golden--input--borderColor--focus--dark--contrast
+      );
+    }
+  }
+
+  /* Explicit light theme with high contrast preference */
+  :where([data-theme="light"]) {
+    --golden--surface--primary: var(
+      --golden--surface--primary--light--contrast
+    );
+    --golden--button--backgroundColor--primary: var(
+      --golden--button--backgroundColor--primary--light--contrast
+    );
+    --golden--input--borderColor--focus--light: var(
+      --golden--input--borderColor--focus--light--contrast
+    );
+  }
+
+  /* Explicit dark theme with high contrast preference */
+  :where([data-theme="dark"]) {
+    --golden--surface--primary: var(--golden--surface--primary--dark--contrast);
+    --golden--button--backgroundColor--primary: var(
+      --golden--button--backgroundColor--primary--dark--contrast
+    );
+    --golden--input--borderColor--focus--light: var(
+      --golden--input--borderColor--focus--dark--contrast
+    );
+  }
+}

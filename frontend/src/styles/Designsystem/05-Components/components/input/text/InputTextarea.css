@@ -1,0 +1,120 @@
+:where(.InputTextareaField) {
+  --_backgroundColor: var(--input--backgroundColor);
+  --_borderColor: var(--input--borderColor);
+  --_inputColor: var(--input--color);
+  --_labelColor: var(--input--color);
+
+  &:not([data-full-width="true"]) {
+    --_maxWidth: 28rem;
+  }
+
+  &[data-full-width="true"] {
+    --_maxWidth: 100%;
+  }
+
+  &:not([data-resizable="true"]) {
+    --_resize: none;
+  }
+
+  &[data-resizable="true"] {
+    --_resize: both;
+  }
+}
+
+:where(.InputTextareaField) {
+  margin-bottom: 1.5em;
+  max-inline-size: var(--_maxWidth);
+
+  & > label {
+    position: relative;
+    display: inline-block;
+    white-space: normal;
+    font-family: var(--fontFamily--heading);
+    font-weight: 500;
+    user-select: none;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    color: var(--label--color);
+    margin-block-end: var(--label--marginBlockEnd);
+
+    & > span {
+      color: red;
+    }
+  }
+
+  textarea {
+    position: relative;
+    display: block;
+    background-color: var(--_backgroundColor);
+    inline-size: 100%;
+    padding-inline: 0.88rem;
+    padding-block: 0.7rem;
+    color: var(--_inputColor);
+    font-family: var(--fontFamily--heading);
+    font-size: 1.125rem;
+    font-weight: 400;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--_borderColor);
+    border-radius: 0.2em;
+    line-height: 1;
+    resize: var(--_resize);
+
+    &:focus,
+    &:active,
+    &[data-test-state="hover"],
+    &[data-test-state="active"],
+    &[data-test-state="focus"],
+    &[data-test-state="focus-visible"] {
+      outline: none;
+      box-shadow: none;
+      border-color: currentColor;
+      background-color: var(--input--backgroundColor--primary);
+    }
+
+    &::placeholder {
+      color: var(--input--backgroundColor--secondary);
+    }
+
+    /* Disabled */
+    &[disabled] {
+      cursor: not-allowed;
+      opacity: 0.64;
+      user-select: none;
+    }
+  }
+
+  &:focus,
+  &:active,
+  &[data-test-state="hover"],
+  &[data-test-state="active"],
+  &[data-test-state="focus"],
+  &[data-test-state="focus-visible"] {
+    outline: none;
+    box-shadow: none;
+    border-color: currentColor;
+    background-color: var(--input--backgroundColor--primary);
+  }
+
+  & > .helpTextContainer {
+    margin-block-start: 0.5rem;
+  }
+
+  & > .validationContainer {
+    & > .validation {
+      margin-block-start: 0.5rem;
+      display: flex;
+      gap: 1rem;
+      padding: 0.5rem;
+      background-color: #fdedee;
+      border-inline-start: 4px solid #e63946;
+      max-inline-size: var(--_maxWidth);
+
+      & > svg {
+        color: #e63946;
+      }
+    }
+  }
+}

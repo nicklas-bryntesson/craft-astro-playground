@@ -1,0 +1,137 @@
+/* prettier-ignore */
+:root {
+    /* LIGHT */
+    --card--color--primary--golden--light:     var(--COLOR--YE95);
+    --card--color--secondary--golden--light:   var(--COLOR--YE70);
+    --card--backgroundColor--golden--light:    var(--COLOR--YE05);
+    --card--borderColor--golden--light:        var(--COLOR--YE20);
+    
+    --card--accentColor--golden--light:        var(--COLOR--YE50);
+
+    /* LIGHT CONTRAST */
+    --card--color--primary--golden--light--contrast:   var(--COLOR--N95);
+    --card--color--secondary--golden--light--contrast: var(--COLOR--N95);
+    --card--backgroundColor--golden--light--contrast:  var(--COLOR--N00);
+    --card--borderColor--golden--light--contrast:      var(--COLOR--N95);
+    --card--accentColor--golden--light--contrast:      var(--COLOR--YE50);
+
+    /* DARK */
+    --card--color--primary--golden--dark:      var(--COLOR--YE50);
+    --card--color--secondary--golden--dark:    var(--COLOR--YE10);
+    --card--backgroundColor--golden--dark:     var(--COLOR--YE95);
+    --card--borderColor--golden--dark:         var(--COLOR--YE70);
+    --card--accentColor--golden--dark:         var(--COLOR--YE50);
+
+    /* DARK CONSTRAST */
+    --card--color--primary--golden--dark--contrast:    var(--COLOR--N00);
+    --card--color--secondary--golden--dark--contrast:  var(--COLOR--N00);
+    --card--backgroundColor--golden--dark--contrast:   var(--COLOR--YE95);
+    --card--borderColor--golden--dark--contrast:       var(--COLOR--N00);
+    --card--accentColor--golden--dark--contrast:       var(---COLOR--YE50);
+
+}
+
+/* prettier-ignore */
+:root {
+    color-scheme: light;    
+    --card--color--primary--golden:            var(--card--color--primary--golden--light);
+    --card--color--secondary--golden:          var(--card--color--secondary--golden--light);
+    --card--backgroundColor--golden:           var(--card--backgroundColor--golden--light);
+    --card--borderColor--golden:               var(--card--borderColor--golden--light);
+    --card--accentColor--golden:               var(--card--accentColor--golden--light);
+}
+
+/* prettier-ignore */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;    
+        --card--color--primary--golden:        var(--card--color--primary--golden--dark);
+        --card--color--secondary--golden:      var(--card--color--secondary--golden--dark);
+        --card--backgroundColor--golden:       var(--card--backgroundColor--golden--dark);
+        --card--borderColor--golden:           var(--card--borderColor--golden--dark);
+        --card--accentColor--golden:           var(--card--accentColor--golden--dark);
+    }
+}
+
+/* prettier-ignore */
+[data-appearance="light"] {
+    color-scheme: light;    
+    --card--color--primary--golden:            var(--card--color--primary--golden--light);
+    --card--color--secondary--golden:          var(--card--color--secondary--golden--light);
+    --card--backgroundColor--golden:           var(--card--backgroundColor--golden--light);
+    --card--borderColor--golden:               var(--card--borderColor--golden--light);
+    --card--accentColor--golden:               var(--card--accentColor--golden--light);
+}
+
+/* prettier-ignore */
+[data-appearance="dark"] {
+    color-scheme: dark;    
+    --card--color--primary--golden:            var(--card--color--primary--golden--dark);
+    --card--color--secondary--golden:          var(--card--color--secondary--golden--dark);
+    --card--backgroundColor--golden:           var(--card--backgroundColor--golden--dark);
+    --card--borderColor--golden:               var(--card--borderColor--golden--dark);
+    --card--accentColor--golden:               var(--card--accentColor--golden--dark);
+}
+
+/* prettier-ignore */
+@media (prefers-color-scheme: light) and (prefers-contrast: more) {
+    :root {
+        color-scheme: light;
+        --card--color--primary--golden:        var(--card--color--primary--golden--light--contrast);
+        --card--color--secondary--golden:      var(--card--color--secondary--golden--light--contrast);
+        --card--backgroundColor--golden:       var(--card--backgroundColor--golden--light--contrast);
+        --card--borderColor--golden:           var(--card--borderColor--golden--light--contrast);
+        --card--accentColor--golden:           var(--card--accentColor--golden--light--contrast);
+    }
+
+    [data-appearance="light"] {
+        color-scheme: light;
+        --card--color--primary--golden:        var(--card--color--primary--golden--light--contrast);
+        --card--color--secondary--golden:      var(--card--color--secondary--golden--light--contrast);
+        --card--backgroundColor--golden:       var(--card--backgroundColor--golden--light--contrast);
+        --card--borderColor--golden:           var(--card--borderColor--golden--light--contrast);
+        --card--accentColor--golden:           var(--card--accentColor--golden--light--contrast);
+    }
+}
+
+/* prettier-ignore */
+@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+    :root {
+        color-scheme: dark;
+        --card--color--primary--golden:        var(--card--color--primary--golden--dark--contrast);
+        --card--color--secondary--golden:      var(--card--color--secondary--golden--dark--contrast);
+        --card--backgroundColor--golden:       var(--card--backgroundColor--golden--dark--contrast);
+        --card--borderColor--golden:           var(--card--borderColor--golden--dark--contrast);
+        --card--accentColor--golden:           var(--card--accentColor--golden--dark--contrast);
+    }
+
+    [data-appearance="dark"] {
+        color-scheme: dark;
+        --card--color--primary--golden:        var(--card--color--primary--golden--dark--contrast);
+        --card--color--secondary--golden:      var(--card--color--secondary--golden--dark--contrast);
+        --card--backgroundColor--golden:       var(--card--backgroundColor--golden--dark--contrast);
+        --card--borderColor--golden:           var(--card--borderColor--golden--dark--contrast);
+        --card--accentColor--golden:           var(--card--accentColor--golden--dark--contrast);
+    }
+}
+
+/* prettier-ignore */
+@media (prefers-contrast: more) {
+    [data-appearance="light"] {
+        color-scheme: light;
+        --card--color--primary--golden:        var(--card--color--primary--golden--light--contrast);
+        --card--color--secondary--golden:      var(--card--color--secondary--golden--light--contrast);
+        --card--backgroundColor--golden:       var(--card--backgroundColor--golden--light--contrast);
+        --card--borderColor--golden:           var(--card--borderColor--golden--light--contrast);
+        --card--accentColor--golden:           var(--card--accentColor--golden--light--contrast);
+    }
+
+    [data-appearance="dark"] {
+        color-scheme: dark;
+        --card--color--primary--golden:        var(--card--color--primary--golden--dark--contrast);
+        --card--color--secondary--golden:      var(--card--color--secondary--golden--dark--contrast);
+        --card--backgroundColor--golden:       var(--card--backgroundColor--golden--dark--contrast);
+        --card--borderColor--golden:           var(--card--borderColor--golden--dark--contrast);
+        --card--accentColor--golden:           var(--card--accentColor--golden--dark--contrast);
+    }
+}

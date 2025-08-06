@@ -1,0 +1,29 @@
+@layer tokens.constants.typography {
+  :where(:root) {
+    --SYSTEM--UI: system-ui, sans-serif;
+    --GEROGIA: georgia, serif;
+    --MONOSPACE: monospace;
+
+    --SYSTEM--UI--400: 400;
+
+    --FONTSIZE--H1--MOBILE: 2.5rem;
+    --FONTSIZE--H2--MOBILE: 2.25rem;
+    --FONTSIZE--H3--MOBILE: 1.75rem;
+    --FONTSIZE--H4--MOBILE: 1.375rem;
+    --FONTSIZE--H5--MOBILE: 1.125rem;
+    --FONTSIZE--H6--MOBILE: 1rem;
+
+    --FONTSIZE--H1--DESKTOP: 3.5rem;
+    --FONTSIZE--H2--DESKTOP: 2.5rem;
+    --FONTSIZE--H3--DESKTOP: 2rem;
+    --FONTSIZE--H4--DESKTOP: 1.5rem;
+    --FONTSIZE--H5--DESKTOP: 1.25rem;
+    --FONTSIZE--H6--DESKTOP: 1.125rem;
+
+    --FONTSIZE--BODY--MOBILE: 1rem;
+    --FONTSIZE--BODY--SMALL--MOBILE: 1rem;
+
+    --FONTSIZE--BODY--DESKTOP: 1.125rem;
+    --FONTSIZE--BODY--SMALL--MOBILE: 1.125rem;
+  }
+}

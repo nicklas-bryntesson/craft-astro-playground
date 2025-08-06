@@ -1,0 +1,24 @@
+@layer tokens.semantic.size {
+  :where(:root) {
+    --size--none: 0;
+    --size--base: var(--site--rootUnit--responsive); /* 12/16px */
+
+    --size--xs: calc(var(--site--rootUnit--responsive) * 0.25); /* 3/4px */
+    --size--sm: calc(var(--site--rootUnit--responsive) * 0.5); /* 6/8px */
+    --size--md: var(--site--rootUnit--responsive); /* 12/16px */
+    --size--lg: calc(var(--site--rootUnit--responsive) * 1.5); /* 18/24px */
+    --size--xl: calc(var(--site--rootUnit--responsive) * 2); /* 24/32px */
+    --size--2xl: calc(var(--site--rootUnit--responsive) * 2.5); /* 30/40px */
+    --size--3xl: calc(var(--site--rootUnit--responsive) * 3); /* 36/48px */
+    --size--4xl: calc(var(--site--rootUnit--responsive) * 3.5); /* 42/56px */
+    --size--5xl: calc(var(--site--rootUnit--responsive) * 4); /* 48/64px */
+
+    @media (max-width: 48.74rem) {
+      --site--rootUnit--responsive: var(--SIZE--ROOTUNIT--MOBILE);
+    }
+
+    @media (min-width: 48.75rem) {
+      --site--rootUnit--responsive: var(--SIZE--ROOTUNIT--DESKTOP);
+    }
+  }
+}
