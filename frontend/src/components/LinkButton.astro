@@ -1,3 +1,102 @@
+---
+interface Props {
+	type?: "primary" | "secondary" | "tertiary";
+	size?: "small" | "medium" | "large";
+	icon?: string;
+	iconPosition?: "start" | "end";
+	testState?: "hover" | "active" | "focus" | "debug";
+	href?: string;
+	text?: string;
+	id?: string;
+	class?: string;
+}
+
+const {
+	type = "primary",
+	size = "medium",
+	icon,
+	iconPosition = "end",
+	testState,
+	href = "#",
+	text = "",
+	id,
+	class: customClasses,
+} = Astro.props;
+
+const errors: string[] = [];
+
+// The TypeScript interface provides static safety, but this runtime validation
+// is useful for data from dynamic sources (e.g., a CMS).
+const allowedTypes = ["primary", "secondary", "tertiary"];
+if (!allowedTypes.includes(type)) {
+	errors.push(
+		`Invalid button type \`${type}\`. Allowed types: ${allowedTypes.join(", ")}.`,
+	);
+}
+
+const allowedSizes = ["small", "medium", "large"];
+if (!allowedSizes.includes(size)) {
+	errors.push(
+		`Invalid button size \`${size}\`. Allowed sizes: ${allowedSizes.join(", ")}.`,
+	);
+}
+
+const allowedIconPositions = ["start", "end"];
+if (icon && !allowedIconPositions.includes(iconPosition)) {
+	errors.push(
+		`Invalid icon position \`${iconPosition}\`. Allowed positions: ${allowedIconPositions.join(
+			", ",
+		)}.`,
+	);
+}
+
+const allowedTestStates = ["hover", "active", "focus", "debug"];
+if (testState && !allowedTestStates.includes(testState)) {
+	errors.push(
+		`Invalid test state \`${testState}\`. Allowed states: ${allowedTestStates.join(
+			", ",
+		)}.`,
+	);
+}
+---
+
+{
+	errors.length > 0 ? (
+		<div class="unsupportedContainer" role="alert">
+			<strong>Error:</strong> {errors.join(" | ")}
+		</div>
+	) : (
+		<a
+			id={id}
+			class:list={["button", customClasses]}
+			href={href}
+			data-type={type}
+			data-size={size}
+			data-icon={icon}
+			data-icon-position={icon ? iconPosition : undefined}
+			data-test-state={testState}
+		>
+			<span class="buttonText">
+				{text}
+				<slot />
+				<span class="screenReaderText" />
+			</span>
+
+			{icon && (
+				<svg
+					class="buttonIcon"
+					aria-hidden="true"
+					width="1em"
+					height="1em"
+				>
+					<use xlink:href={`#${icon}`} />
+				</svg>
+			)}
+		</a>
+	)
+}
+
+<style>
 /* prettier-ignore */
 :where(.button) {
   --_fontFamily: var(--fontFamily--heading);
@@ -195,3 +294,5 @@
     }
   }
 }
+  
+</style>

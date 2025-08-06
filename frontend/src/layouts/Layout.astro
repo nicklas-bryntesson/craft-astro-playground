@@ -26,7 +26,12 @@ const currentPath = Astro.url.pathname;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+
 		<ThemeManager />
+
+		<script>
+			document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));
+		</script>
 	</head>
 	<body>
 		<div 

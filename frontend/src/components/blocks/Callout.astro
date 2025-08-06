@@ -1,7 +1,16 @@
 ---
 const { block } = Astro.props;
 ---
-<aside class="my-12 not-prose">
-  <div class="rounded-lg bg-slate-100 p-8" set:html={block.pageContent.html}>
+<aside class="">
+  <div class="" set:html={block.pageContent.html}>
   </div>
 </aside> 
+
+<style scoped>
+  aside {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--header--backgroundColor);
+    margin-block: 2rem;
+  }
+</style>
