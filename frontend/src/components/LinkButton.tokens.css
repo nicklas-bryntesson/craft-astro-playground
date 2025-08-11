@@ -1,0 +1,177 @@
+:where(:root) {
+  --button--fontFamily: var(--fontFamily--heading);
+  --button--fontWeight: 700;
+  --button--borderWidth: 1px;
+}
+
+/* prettier-ignore */
+:where(:root) {
+  --button--fontFamily: var(--fontFamily--heading);
+  --button--fontWeight: var(--fontWeight--heading);
+  --button--borderWidth--normal: 0.0625rem;
+  --button--borderWidth--contrast: 0.125rem;
+}
+
+/* prettier-ignore */
+:where(:root) {
+  --button--borderWidth--normal: 0.0625rem;
+  --button--borderWidth--contrast: 0.0625rem;
+  --button--boxShadow--normal: 0 0 0 0 transparent;
+  --button--boxShadow--contrast: 0 0 0 0.0625rem var(--button--borderColor--primary);
+  --button--borderWidth: var(--button--borderWidth--normal);
+  --button--boxShadow: var(--button--boxShadow--normal);
+}
+
+@media (prefers-contrast: more) {
+  :where(:root) {
+    --button--borderWidth: var(--button--borderWidth--contrast);
+    --button--boxShadow: var(--button--boxShadow--contrast);
+  }
+}
+
+/* COLOR TOKEN FACTORY */
+/* prettier-ignore */
+/* Base token definitions */
+:where(:root) {
+  /* light - primary */
+  --button--backgroundColor--primary--light: var(--COLOR--B50);
+  --button--borderColor--primary--light: var(--COLOR--B50);
+  --button--color--primary--light: var(--COLOR--N00);
+  /* light - secondary */
+  --button--backgroundColor--secondary--light: transparent;
+  --button--borderColor--secondary--light: var(--COLOR--N40);
+  --button--color--secondary--light: var(--COLOR--N95);
+  /* light - primary - contrast */
+  --button--backgroundColor--primary--light--contrast: var(--COLOR--N95);
+  --button--borderColor--primary--light--contrast: var(--COLOR--N95);
+  --button--color--primary--light--contrast: var(--COLOR--N00);
+  /* light - secondary - contrast */
+  --button--backgroundColor--secondary--light--contrast: transparent;
+  --button--borderColor--secondary--light--contrast: var(--COLOR--N95);
+  --button--color--secondary--light--contrast: var(--COLOR--N95);
+  /* Dark - primary */
+  --button--backgroundColor--primary--dark: var(--COLOR--B60);
+  --button--borderColor--primary--dark: var(--COLOR--B60);
+  --button--color--primary--dark: var(--COLOR--N00);
+  /* Dark - secondary */
+  --button--backgroundColor--secondary--dark: transparent;
+  --button--borderColor--secondary--dark: var(--COLOR--N60);
+  --button--color--secondary--dark: var(--COLOR--N00);
+  /* Dark - primary - contrast */
+  --button--backgroundColor--primary--dark--contrast: var(--COLOR--N00);
+  --button--borderColor--primary--dark--contrast: var(--COLOR--N00);
+  --button--color--primary--dark--contrast: var(--COLOR--N95);
+  /* Dark - secondary - contrast */
+  --button--backgroundColor--secondary--dark--contrast: transparent;
+  --button--borderColor--secondary--dark--contrast: var(--COLOR--N00);
+  --button--color--secondary--dark--contrast: var(--COLOR--N00);
+}
+
+/* Default light mode */
+@scope (:root) {
+  :scope {
+    color-scheme: light;
+    /* Primary */
+    --button--backgroundColor--primary: var(--button--backgroundColor--primary--light);
+    --button--borderColor--primary: var(--button--borderColor--primary--light);
+    --button--color--primary: var(--button--color--primary--light);
+    /* Secondary */
+    --button--backgroundColor--secondary: var(--button--backgroundColor--secondary--light);
+    --button--borderColor--secondary: var(--button--borderColor--secondary--light);
+    --button--color--secondary: var(--button--color--secondary--light);
+  }
+}
+
+/* System preference dark mode (when no explicit theme is set) */
+@scope (:root:not([data-appearance])) {
+  @media (prefers-color-scheme: dark) {
+    :scope {
+      color-scheme: dark;
+      /* Primary */
+      --button--backgroundColor--primary: var(--button--backgroundColor--primary--dark);
+      --button--borderColor--primary: var(--button--borderColor--primary--dark);
+      --button--color--primary: var(--button--color--primary--dark);
+      /* Secondary */
+      --button--backgroundColor--secondary: var(--button--backgroundColor--secondary--dark);
+      --button--borderColor--secondary: var(--button--borderColor--secondary--dark);
+      --button--color--secondary: var(--button--color--secondary--dark);
+    }
+  }
+}
+
+/* Explicit light theme setting */
+@scope ([data-appearance="light"]) {
+  :scope {
+    color-scheme: light;
+    /* Primary */
+    --button--backgroundColor--primary: var(--button--backgroundColor--primary--light);
+    --button--borderColor--primary: var(--button--borderColor--primary--light);
+    --button--color--primary: var(--button--color--primary--light);
+    /* Secondary */
+    --button--backgroundColor--secondary: var(--button--backgroundColor--secondary--light);
+    --button--borderColor--secondary: var(--button--borderColor--secondary--light);
+    --button--color--secondary: var(--button--color--secondary--light);
+  }
+}
+
+/* Explicit dark theme setting */
+@scope ([data-appearance="dark"]) {
+  :scope {
+    color-scheme: dark;
+    /* Primary */
+    --button--backgroundColor--primary: var(--button--backgroundColor--primary--dark);
+    --button--borderColor--primary: var(--button--borderColor--primary--dark);
+    --button--color--primary: var(--button--color--primary--dark);
+    /* Secondary */
+    --button--backgroundColor--secondary: var(--button--backgroundColor--secondary--dark);
+    --button--borderColor--secondary: var(--button--borderColor--secondary--dark);
+    --button--color--secondary: var(--button--color--secondary--dark);
+  }
+}
+
+/* System preference high contrast mode */
+@media (prefers-contrast: more) {
+  /* Contrast light mode */
+  @scope (:root:not([data-appearance="dark"])) {
+    :scope {
+      /* Primary */
+      --button--backgroundColor--primary: var(--button--backgroundColor--primary--light--contrast);
+      --button--borderColor--primary: var(--button--borderColor--primary--light--contrast);
+      --button--color--primary: var(--button--color--primary--light--contrast);
+      /* Secondary */
+      --button--backgroundColor--secondary: var(--button--backgroundColor--secondary--light--contrast);
+      --button--borderColor--secondary: var(--button--borderColor--secondary--light--contrast);
+      --button--color--secondary: var(--button--color--secondary--light--contrast);
+    }
+  }
+
+  /* Contrast dark mode */
+  @scope (:root[data-appearance="dark"]) {
+    :scope {
+      /* Primary */
+      --button--backgroundColor--primary: var(--button--backgroundColor--primary--dark--contrast);
+      --button--borderColor--primary: var(--button--borderColor--primary--dark--contrast);
+      --button--color--primary: var(--button--color--primary--dark--contrast);
+      /* Secondary */
+      --button--backgroundColor--secondary: var(--button--backgroundColor--secondary--dark--contrast);
+      --button--borderColor--secondary: var(--button--borderColor--secondary--dark--contrast);
+      --button--color--secondary: var(--button--color--secondary--dark--contrast);
+    }
+  }
+
+  /* Contrast dark mode (system preference) */
+  @scope (:root:not([data-appearance])) {
+    @media (prefers-color-scheme: dark) {
+      :scope {
+        /* Primary */
+        --button--backgroundColor--primary: var(--button--backgroundColor--primary--dark--contrast);
+        --button--borderColor--primary: var(--button--borderColor--primary--dark--contrast);
+        --button--color--primary: var(--button--color--primary--dark--contrast);
+        /* Secondary */
+        --button--backgroundColor--secondary: var(--button--backgroundColor--secondary--dark--contrast);
+        --button--borderColor--secondary: var(--button--borderColor--secondary--dark--contrast);
+        --button--color--secondary: var(--button--color--secondary--dark--contrast);
+      }
+    }
+  }
+}

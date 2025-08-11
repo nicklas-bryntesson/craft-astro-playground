@@ -1,0 +1,6 @@
+---
+const { block } = Astro.props;
+const { embedCode } = block;
+---
+<figure class="video-block video my-12 aspect-w-16 aspect-h-9" set:html={embedCode}>
+</figure> 
