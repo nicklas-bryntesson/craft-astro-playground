@@ -1,6 +1,7 @@
 ---
 import { craftClient } from '../lib/graphql';
 import { GLOBALS_QUERY } from '../queries/globals.mjs';
+import { ClientRouter } from "astro:transitions";
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SvgSprite from '../components/SvgSprite.astro'
@@ -27,11 +28,9 @@ const currentPath = Astro.url.pathname;
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 
+		<ClientRouter />
 		<ThemeManager />
 
-		<script>
-			document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));
-		</script>
 	</head>
 	<body>
 		<div 
@@ -45,10 +44,13 @@ const currentPath = Astro.url.pathname;
 				{siteName}
 				logo={globals?.logo}
 			/>
-			<div class="mainContainer">
+			<div class="mainContainer" transition:animate="slide">
 				<slot />
 			</div>
-			<Footer address={globals?.address[0]} />
+			<Footer 
+				address={globals?.address[0]}
+				transition:animate="fade" 
+			/>
 		</div>
 		<SvgSprite />
 		<ScrollObserver />
