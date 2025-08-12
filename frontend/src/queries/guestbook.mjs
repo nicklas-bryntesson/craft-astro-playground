@@ -24,6 +24,15 @@ export const GUESTBOOK_QUERY = `
                 html
               }
             }
+            ... on blockquote_Entry {
+              blockquote
+              quoteAuthor
+              quoteImage {
+                url
+                width
+                height
+              }
+            }
             ... on CkeditorMarkup {
               html
             }

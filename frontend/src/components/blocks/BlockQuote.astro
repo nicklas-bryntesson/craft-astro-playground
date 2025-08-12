@@ -1,0 +1,64 @@
+---
+const { block } = Astro.props;
+const image = block.quoteImage?.[0];
+---
+
+<figure class="BlockQuote">
+
+    {image && <img class="" src={image.url} alt="" width={image.width} height={image.height} loading="lazy" />}
+
+    <blockquote>
+        <svg aria-hidden="true" focusable="false">
+            <use href={`#icon-chat`}></use>
+        </svg>
+        <p>{block.blockquote}</p>
+    </blockquote>
+    
+    {block.quoteAuthor && (
+        <figcaption>
+            <cite>{block.quoteAuthor}</cite>
+        </figcaption>
+    )}
+</figure>
+
+<style scoped>
+    .BlockQuote {
+        padding: var(--size--lg);
+        border-radius: 1rem;
+        background-color: var(--header--backgroundColor);
+
+        > img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        > blockquote {
+            display: flex;
+            gap: 1rem;
+
+            > svg {
+                display: grid;
+                place-items: center;
+                inline-size: var(--size--xl);
+                block-size: var(--size--xl);
+            }
+
+            > p {
+                font-size: var(--fontSize--h2);
+                margin-block: 0;
+            }
+        }
+        
+        
+
+        > figcaption {
+            margin-top: 1rem;
+            font-style: italic;
+        }
+    }
+
+</style>

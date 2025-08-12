@@ -1,7 +1,0 @@
-/* Tokens */
-@import "./tokens/generic.css";
-@import "./tokens/colorDefault.css";
-@import "./tokens/colorPinkish.css";
-@import "./tokens/colorGolden.css";
-/* Component */
-@import "./Card.css";

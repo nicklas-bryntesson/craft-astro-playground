@@ -2,7 +2,26 @@
 const { block } = Astro.props;
 const image = block.image[0];
 ---
-<figure class="my-12 not-prose">
-  <img src={image.url} alt={block.title || ''} width={image.width} height={image.height} class="w-full h-auto rounded-lg" loading="lazy" />
-  {block.title && <figcaption class="text-center text-sm italic mt-2">{block.title}</figcaption>}
+<figure class="Image">
+  <img src={image.url} alt={block.title || ''} width={image.width} height={image.height} class="" loading="lazy" />
+  {block.title && <figcaption>{block.title}</figcaption>}
 </figure> 
+
+<style scoped>
+.Image {
+  margin-block: 1.5rem;
+
+  > img {
+    inline-size: 100%;
+    block-size: auto;
+    border-radius: 1rem;
+  }
+
+  > figcaption {
+    text-align: center;
+    font-size: var(--fontSize--body--small);
+    font-style: italic;
+    margin-block-start: 0.5rem;
+  }
+}
+</style>

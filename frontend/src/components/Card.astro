@@ -1,10 +1,78 @@
+---
+import './Card.tokens.css'
+import LinkButton from "./LinkButton.astro";
+import Notification from "./Notification.astro";
+
+interface Props {
+	theme?: "default" | "pinkish" | "golden";
+	title: string;
+	content: string;
+	linkOneUrl?: string;
+	linkOneText?: string;
+	class?: string;
+}
+
+const {
+	theme = "default",
+	title,
+	content,
+	linkOneUrl,
+	linkOneText,
+	class: customClasses,
+} = Astro.props;
+
+const errors: string[] = [];
+const allowedThemes = ["default", "pinkish", "golden"];
+if (!allowedThemes.includes(theme)) {
+	errors.push(
+		`Invalid theme "${theme}". Allowed themes: ${allowedThemes.join(", ")}.`,
+	);
+}
+---
+
+{
+	errors.length > 0 ? (
+		<Notification type="danger" title="Component Error" text={errors.join(" | ")} />
+	) : (
+		<article class:list={["Card", customClasses]} data-theme={theme}>
+			<header>
+				<figure>
+					<svg>
+						<use xlink:href="#icon-image"></use>
+					</svg>
+				</figure>
+				<h3>{title}</h3>
+			</header>
+
+			<div class="content">
+				<Fragment set:html={content} />
+			</div>
+
+			<footer>
+				{linkOneUrl && (
+					<LinkButton
+						href={linkOneUrl}
+						type="primary"
+						size="medium"
+						text={linkOneText || ""}
+					/>
+				)}
+			</footer>
+		</article>
+	)
+}
+
+<style>
 :where(.Card) {
   --_borderRadius: var(--card--borderRadius--outer);
   --_gap: var(--card--gap);
   --_padding: var(--card--padding);
+  --_maxWidth: 26rem;
 
   display: flex;
   flex-direction: column;
+  inline-size: 100%;
+  max-inline-size: var(--_maxWidth);
   background-color: var(--_backgroundColor);
   border: 0.0625rem solid var(--_borderColor);
   border-radius: var(--_borderRadius);
@@ -74,25 +142,6 @@
     --_borderColor: var(--card--borderColor--default);
   }
 
-  &[data-theme="*"] {
-    --_colorPrimary: var(
-      --theme--color--primary,
-      var(--card--color--primary--default)
-    );
-    --_colorSecondary: var(
-      --theme--color--primary,
-      var(--card--color--primary--default)
-    );
-    --_backgroundColor: var(
-      --theme--color--primary,
-      var(--card--color--primary--default)
-    );
-    --_borderColor: var(
-      --theme--borderColor--primary,
-      var(--card--color--primary--default)
-    );
-  }
-
   &[data-theme="pinkish"] {
     /* this component */
     --_colorPrimary: var(--card--color--primary--pinkish);
@@ -109,4 +158,16 @@
       --button--primary--borderColor--pinkish
     );
   }
+
+  /* prettier-ignore */
+  &[data-theme="golden"] {
+      --_colorPrimary: var(--card--color--primary--golden);
+      --_colorSecondary: var(--card--color--secondary--golden);
+      --_backgroundColor: var(--card--backgroundColor--golden);
+      --_borderColor: var(--card--borderColor--golden);
+  
+      --button--theme--backgroundColor--primary: var(--card--accentColor--golden);
+      --button--theme--borderColor--primary: var(--card--accentColor--golden);
+    }
 }
+</style>

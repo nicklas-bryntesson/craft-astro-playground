@@ -17,24 +17,33 @@ export const PAGE_QUERY = `
         uri
         pageSubheading
         pageContent {
-          html,
+          html
           chunks {
             __typename
             ... on image_Entry {
-              title,
-              url,
+              title
+              url
               image {
-                url,
-                width,
+                url
+                width
                 height
               }
-            },
+            }
             ... on callout_Entry {
-              title,
+              title
               pageContent {
                 html
               }
-            },
+            }
+            ... on blockquote_Entry {
+              blockquote
+              quoteAuthor
+              quoteImage {
+                url
+                width
+                height
+              }
+            }
             ... on CkeditorMarkup {
               html
             }

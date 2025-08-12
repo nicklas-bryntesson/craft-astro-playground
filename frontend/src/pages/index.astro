@@ -4,10 +4,8 @@ import { craftClient } from '../lib/graphql';
 import { getPreviewStatus, PreviewScript } from '../lib/preview';
 import { HOME_QUERY } from '../queries/home.mjs';
 import ContentBlocks from '../components/ContentBlocks.astro';
-import LinkButton from '../components/LinkButton.astro';
-import Notification from '../components/Notification.astro';
 
-
+import KitchenSink from '../components/KitchenSink.astro';
 
 const preview = getPreviewStatus(Astro.url);
 
@@ -38,26 +36,6 @@ const pageTitle = entry?.title ? `${entry.title} | ${siteName}` : siteName;
       </div>
     </header>
 
-    <div class="test">
-      <LinkButton type="primary" size="large" href="#">
-        Click me
-      </LinkButton>
-
-      <LinkButton type="secondary" icon="icon-success" iconPosition="end" text="With Icon" />
-      <LinkButton type="primary" icon="icon-info" size="small" iconPosition="start" text="With Icon" />
-      <LinkButton type="primary" icon="icon-info" size="medium" iconPosition="start" text="With Icon" />
-      <LinkButton type="primary" icon="icon-info" size="large" iconPosition="start" text="With Icon" />
-      
-    </div>
-
-    <div class="test">
-
-      <Notification
-        type="info"
-        title="Information"
-        text="This is an informational message."
-      />
-    </div>
 
     {entry?.pageContent?.chunks && (
       <div class="pageContent prose">
@@ -65,25 +43,26 @@ const pageTitle = entry?.title ? `${entry.title} | ${siteName}` : siteName;
       </div>
     )}
 
+    <KitchenSink />
+
   </main>
 </Layout>
 
 <Fragment set:html={PreviewScript({ isPreview: preview.isPreview })} />
 
 <style scoped>
-  :where(main) {
-    display: grid;
-    grid-template-columns: var(--centerGrid--columns);
+:where(main) {
+  padding-block: 2rem;
+}
+</style>
 
-    & > * {
-      grid-column: main;
-    }
-  }
+<style is:global>
+:where(main) {
+  display: grid;
+  grid-template-columns: var(--centerGrid--columns);
 
-  .test {
-    margin-block: 2rem;
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
+  & > * {
+    grid-column: main;
   }
+}
 </style>

@@ -1,0 +1,70 @@
+/* here we can play with viewtransitions */
+@view-transition {
+  navigation: auto;
+}
+
+/*
+  The following animations are based on the example from the MDN documentation on View Transitions.
+  https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API/Using_the_View_Transitions_API
+*/
+
+::view-transition-old(main-header) {
+  animation: 200ms ease-in-out both slide-out-up;
+}
+::view-transition-new(main-header) {
+  animation: 200ms ease-in-out both slide-in-down;
+}
+
+::view-transition-old(main-footer) {
+  animation: 200ms ease-in-out both slide-out-down;
+}
+::view-transition-new(main-footer) {
+  animation: 200ms ease-in-out both slide-in-up;
+}
+
+::view-transition-old(main-content) {
+  animation: 350ms ease-in-out both slide-to-right;
+}
+::view-transition-new(main-content) {
+  animation: 350ms ease-in-out both slide-from-left;
+}
+
+@keyframes slide-out-up {
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out-down {
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-from-left {
+  from {
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes slide-to-right {
+  to {
+    transform: translateX(100vw);
+  }
+}

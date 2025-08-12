@@ -23,6 +23,11 @@ settings:
         -
           - uid
           - f7576aa3-c155-4b54-82c9-8cb8c93495c9 # Callout
+    -
+      __assoc__:
+        -
+          - uid
+          - e37a3692-ee5d-4351-a7dd-b1e5a663e2df # Blockquote
   fullGraphqlData: true
   purifierConfig: null
   purifyHtml: true

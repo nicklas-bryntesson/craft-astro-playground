@@ -6,37 +6,8 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
-            autocapitalize: true
-            autocomplete: false
-            autocorrect: true
-            class: null
-            dateAdded: '2024-08-28T04:41:30+00:00'
-            disabled: false
-            elementCondition: null
-            id: null
-            includeInCards: false
-            inputType: null
-            instructions: null
-            label: null
-            max: null
-            min: null
-            name: null
-            orientation: null
-            placeholder: null
-            providesThumbs: false
-            readonly: false
-            requirable: false
-            size: null
-            step: null
-            tip: null
-            title: null
-            type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 1f0911fa-41a3-4430-9c79-6326df8f714f
-            userCondition: null
-            warning: null
-            width: 100
-          -
             dateAdded: '2024-08-28T04:43:19+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 0a58e287-e038-4eb7-ab2a-cf4cbdbe013d # Page content
             handle: null
@@ -56,7 +27,7 @@ fieldLayouts:
         userCondition: null
 handle: callout
 hasTitleField: false
-icon: square
+icon: circle-exclamation
 name: Callout
 showSlugField: false
 showStatusField: false

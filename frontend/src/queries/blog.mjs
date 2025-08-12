@@ -7,24 +7,33 @@ export const BLOG_QUERY = `
         title
         pageSubheading
         pageContent {
-          html,
+          html
           chunks {
             __typename
             ... on image_Entry {
-              title,
-              url,
+              title
+              url
               image {
-                url,
-                width,
+                url
+                width
                 height
               }
-            },
+            }
             ... on callout_Entry {
               title,
               pageContent {
                 html
               }
-            },
+            }
+            ... on blockquote_Entry {
+              blockquote
+              quoteAuthor
+              quoteImage {
+                url
+                width
+                height
+              }
+            }
             ... on CkeditorMarkup {
               html
             }

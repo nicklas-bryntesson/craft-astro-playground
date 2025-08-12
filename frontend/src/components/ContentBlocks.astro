@@ -1,4 +1,5 @@
 ---
+import BlockQuote from './blocks/BlockQuote.astro';
 import Callout from './blocks/Callout.astro';
 import Image from './blocks/Image.astro';
 import Text from './blocks/Text.astro';
@@ -11,6 +12,8 @@ const { chunks } = Astro.props;
       return <Image block={block} />;
     case 'callout_Entry':
       return <Callout block={block} />;
+    case 'blockquote_Entry':
+      return <BlockQuote block={block} />;
     case 'CkeditorMarkup':
       return <Text block={block} />;
     default:

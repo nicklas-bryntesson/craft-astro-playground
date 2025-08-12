@@ -1,4 +1,4 @@
-dateModified: 1751639390
+dateModified: 1754987870
 elementSources:
   craft\elements\Entry:
     -
@@ -165,6 +165,7 @@ meta:
     d4f0917b-edcf-4ef0-a98b-661ff27384ad: Page # Page
     d55d172f-8b8f-4bb7-b680-31249981c350: Global # Global
     d390347a-09cf-4b70-a3b4-bc3cca520623: Category # Category
+    e37a3692-ee5d-4351-a7dd-b1e5a663e2df: Blockquote # Blockquote
     f7576aa3-c155-4b54-82c9-8cb8c93495c9: Callout # Callout
 plugins:
   ckeditor:

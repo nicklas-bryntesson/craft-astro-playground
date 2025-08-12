@@ -77,30 +77,29 @@ const pageTitle = totalPages > 1
 
 
 <style scoped>
-  :where(main) {
+:where(main) {
+  display: grid;
+  grid-template-columns: var(--centerGrid--columns);
+  padding-block: 2rem;
+
+  & > * {
+    grid-column: main;
+  }
+
+  & .relatedContent {
+    --_gridColumns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+
+    margin-inline: auto;
+    grid-column: 1/-1;
     display: grid;
     grid-template-columns: var(--centerGrid--columns);
 
-    & > * {
+    > .teaserContainer {
       grid-column: main;
-    }
-
-    & .relatedContent {
-      --_gridColumns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
-
-      margin-inline: auto;
-      grid-column: 1/-1;
       display: grid;
-      grid-template-columns: var(--centerGrid--columns);
-
-      > .teaserContainer {
-        grid-column: main;
-        display: grid;
-        grid-template-columns: var(--_gridColumns);
-        gap:1rem;
-      }
+      grid-template-columns: var(--_gridColumns);
+      gap:1rem;
     }
   }
-
-
+}
 </style>

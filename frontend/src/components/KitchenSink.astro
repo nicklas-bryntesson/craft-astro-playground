@@ -1,0 +1,59 @@
+---
+import LinkButton from '../components/LinkButton.astro';
+import Notification from '../components/Notification.astro';
+import Card from '../components/Card.astro';
+---
+
+<div class="test">
+    <LinkButton type="primary" size="large" href="#">
+      Click me
+    </LinkButton>
+    <LinkButton type="secondary" icon="icon-success" iconPosition="end" text="With Icon" />
+    <LinkButton type="primary" icon="icon-info" size="small" iconPosition="start" text="With Icon" />
+    <LinkButton type="primary" icon="icon-info" size="medium" iconPosition="start" text="With Icon" />
+    <LinkButton type="primary" icon="icon-info" size="large" iconPosition="start" text="With Icon" /> 
+</div>
+
+<div class="test">
+
+    <Notification
+      type="info"
+      title="Information"
+      text="This is an informational message."
+    />
+
+    <Notification
+      type="danger"
+      title="Information"
+      text="This is an informational message."
+    />
+
+    <Notification
+      type="caution"
+      title="Information"
+      text="This is an informational message."
+    />
+</div>
+
+<div class="test">
+    <Card 
+        title="Nice Card"
+        theme="default"
+        content="Here is the content"
+    />
+
+    <Card 
+    title="Nice Card"
+    theme="golden"
+    content="Here is golden content"
+/>
+</div>
+
+<style scoped>
+.test {
+    margin-block: 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+</style>

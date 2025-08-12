@@ -1,13 +1,13 @@
 ---
 const { block } = Astro.props;
 ---
-<aside class="">
+<aside class="Callout">
   <div class="" set:html={block.pageContent.html}>
   </div>
 </aside> 
 
 <style scoped>
-  aside {
+  .Callout {
     padding: 1rem;
     border-radius: 0.5rem;
     background-color: var(--header--backgroundColor);
