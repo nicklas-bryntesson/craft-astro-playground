@@ -1,0 +1,11 @@
+fill: null
+format: webp
+handle: squareAvatar
+height: 800
+interlace: plane
+mode: crop
+name: 'Square avatar'
+position: center-center
+quality: null
+upscale: true
+width: 800

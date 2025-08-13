@@ -1,4 +1,4 @@
-dateModified: 1754987870
+dateModified: 1755007493
 elementSources:
   craft\elements\Entry:
     -
@@ -132,6 +132,7 @@ fs:
 meta:
   __names__:
     0a58e287-e038-4eb7-ab2a-cf4cbdbe013d: 'Page content' # Page content
+    0a557832-c280-4a8f-9391-1fb54b36a504: 'Square avatar' # Square avatar
     2b829e15-a7bd-4ab0-9050-dcdfe44499cf: 'Public Schema' # Public Schema
     2bae9725-9546-4f55-a889-56102191aa89: Navigation # Navigation
     3e2a1a6f-88ea-477b-936d-39393f2d594f: 'Guestbook Posts' # Guestbook Posts
@@ -146,6 +147,7 @@ meta:
     9d082133-4710-4468-ab39-80db8c9fcf59: Code # Code
     9d42aa56-4a66-4d0b-b8a9-84a4cb387788: 'Text block' # Text block
     25b2446d-c1d2-4aa1-8184-3147e617f069: Text # Text
+    56f9d050-8d22-4bb0-a188-cf4c0fbab9e4: 'Square avatar blur' # Square avatar blur
     58ccb571-6c72-449f-8e7b-6f43c5d416b3: 'Astro Starter' # Astro Starter
     70b2614b-639a-4de2-8c11-3851d36d6f8c: 'Blog Categories' # Blog Categories
     163c895f-0c05-4845-80e2-043b2346d830: Address # Address

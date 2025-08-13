@@ -1,64 +1,130 @@
 ---
+import './BlockQuote.tokens.css'
 const { block } = Astro.props;
 const image = block.quoteImage?.[0];
 ---
 
-<figure class="BlockQuote">
+<figure class="block BlockQuote" data-background="false" data-width="">
 
-    {image && <img class="" src={image.url} alt="" width={image.width} height={image.height} loading="lazy" />}
+    <svg aria-hidden="true" focusable="false">
+        <use href={`#icon-chat`}></use>
+    </svg>
 
-    <blockquote>
-        <svg aria-hidden="true" focusable="false">
-            <use href={`#icon-chat`}></use>
-        </svg>
-        <p>{block.blockquote}</p>
-    </blockquote>
-    
-    {block.quoteAuthor && (
-        <figcaption>
-            <cite>{block.quoteAuthor}</cite>
-        </figcaption>
-    )}
+    <div class="contentContainer">
+        {image && 
+            <div class="thumbnail">
+                <div class="foreground">
+                   <img class="" src={image.avatar} alt={image.alt || ''} width={image.avatarWidth} height={image.avatarHeight} loading="lazy" />
+                </div>
+                <div class="blur">
+					<img class="" src={image.blur} alt="" width={image.blurWidth} height={image.blurHeight} loading="lazy" aria-hidden="true" />
+                </div>
+            </div>
+        }
+
+        <blockquote>
+            <p>{block.blockquote}</p>
+        </blockquote>
+
+        {block.quoteAuthor && (
+            <figcaption>
+                <span aria-hidden="true">-</span>
+                {block.quoteAuthor}
+            </figcaption>
+        )}
+    </div>
 </figure>
 
 <style scoped>
     .BlockQuote {
-        padding: var(--size--lg);
-        border-radius: 1rem;
-        background-color: var(--header--backgroundColor);
+        --_colorPrimary: var(--blockquote--color--primary--default);
+        --_colorSecondary: var(--blockquote--color--secondary--default);
+        --_backgroundColor: var(--blockquote--backgroundColor--default);
+        --_borderColor: var(--blockquote--borderColor--default);
+        --_iconSize: var(--size--xl);
 
-        > img {
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            margin-bottom: 1rem;
+        position: relative;
+        padding: var(--size--xl);
+        background-color: var(--_backgroundColor);
+        border-inline-start: 0.3em solid var(--_borderColor);
+
+        > svg {
+            display: grid;
+            place-items: center;
+            inline-size: var(--_iconSize);
+            block-size: var(--_iconSize);
             display: none;
         }
+        & .contentContainer {
+            display: grid;
+            grid-template-areas: "quote image"
+            "author image";
+            align-items: flex-start;
+            justify-content: space-between;
 
-        > blockquote {
-            display: flex;
-            gap: 1rem;
 
-            > svg {
+            > .thumbnail {
+                grid-area: image;
+                margin-inline-start: var(--size--lg);
                 display: grid;
-                place-items: center;
-                inline-size: var(--size--xl);
-                block-size: var(--size--xl);
+                grid: [stack] 100% / [stack] 100%;
+                width: 10rem;
+                height: 10rem;
+                margin-bottom: 1rem;
+
+                > .foreground {
+                    position: relative;
+                    grid-area: stack;
+                    width: 100%;
+                    aspect-ratio: 1 / 1;
+                    z-index: 2;
+
+                    > img {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                > .blur {
+                    grid-area: stack;
+                    position: relative;
+                    width: 100%;
+                    aspect-ratio: 1 / 1;
+
+                    > img {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        padding: 10%;
+                        inset-block-start: 10%;
+                        opacity: 0.7;
+                        filter: blur(20px);
+                    }
+                }
             }
 
-            > p {
-                font-size: var(--fontSize--h2);
-                margin-block: 0;
+            > blockquote {
+                grid-area: quote;
+                display: flex;
+                gap: 1rem;
+                > svg {
+                    display: grid;
+                    place-items: center;
+                    inline-size: var(--size--xl);
+                    block-size: var(--size--xl);
+                }
+                > p {
+                    font-size: var(--fontSize--h1);
+                    margin-block: 0;
+                }
             }
-        }
-        
-        
-
-        > figcaption {
-            margin-top: 1rem;
-            font-style: italic;
+            > figcaption {
+                grid-area: author;
+                font-style: italic;
+                font-size: var(--fontSize--h5)
+            }
         }
     }
-
 </style>

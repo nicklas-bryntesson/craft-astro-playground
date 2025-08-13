@@ -1,0 +1,113 @@
+:where(:root) {
+    /* LIGHT */
+    --blockquote--color--primary--default--light: var(--COLOR--N95);
+    --blockquote--color--secondary--default--light: var(--COLOR--N80);
+    --blockquote--backgroundColor--default--light: var(--COLOR--N05);
+    --blockquote--borderColor--default--light: var(--COLOR--B50);
+
+    /* LIGHT CONTRAST */
+    --blockquote--color--primary--default--light--contrast: var(--COLOR--N95);
+    --blockquote--color--secondary--default--light--contrast: var(--COLOR--N95);
+    --blockquote--backgroundColor--default--light--contrast: var(--COLOR--N00);
+    --blockquote--borderColor--default--light--contrast: var(--COLOR--N95);
+
+    /* DARK */
+    --blockquote--color--primary--default--dark: var(--COLOR--N05);
+    --blockquote--color--secondary--default--dark: var(--COLOR--N25);
+    --blockquote--backgroundColor--default--dark: var(--COLOR--N90);
+    --blockquote--borderColor--default--dark: var(--COLOR--B80);
+
+    /* DARK CONSTRAST */
+    --blockquote--color--primary--default--dark--contrast: var(--COLOR--N00);
+    --blockquote--color--secondary--default--dark--contrast: var(--COLOR--N00);
+    --blockquote--backgroundColor--default--dark--contrast: var(--COLOR--N95);
+    --blockquote--borderColor--default--dark--contrast: var(--COLOR--N00);
+}
+
+/* Default light mode */
+@scope (:root) {
+    :scope {
+      color-scheme: light;
+      /* Primary */
+      --blockquote--color--primary--default: var(--blockquote--color--primary--default--light);
+      --blockquote--color--secondary--default: var(--blockquote--color--secondary--default--light);
+      --blockquote--backgroundColor--default: var(--blockquote--backgroundColor--default--light);
+      --blockquote--borderColor--default: var(--blockquote--borderColor--default--light);
+    }
+  }
+
+/* System preference dark mode (when no explicit theme is set) */
+@scope (:root:not([data-appearance])) {
+    @media (prefers-color-scheme: dark) {
+      :scope {
+        color-scheme: dark;
+        /* Primary */
+        --blockquote--color--primary--default: var(--blockquote--color--primary--default--dark);
+        --blockquote--color--secondary--default: var(--blockquote--color--secondary--default--dark);
+        --blockquote--backgroundColor--default: var(--blockquote--backgroundColor--default--dark);
+        --blockquote--borderColor--default: var(--blockquote--borderColor--default--dark);
+      }
+    }
+  }
+  
+  /* Explicit light theme setting */
+  @scope ([data-appearance="light"]) {
+    :scope {
+      color-scheme: light;
+      /* Primary */
+      --blockquote--color--primary--default: var(--blockquote--color--primary--default--light);
+      --blockquote--color--secondary--default: var(--blockquote--color--secondary--default--light);
+      --blockquote--backgroundColor--default: var(--blockquote--backgroundColor--default--light);
+      --blockquote--borderColor--default: var(--blockquote--borderColor--default--light);
+    }
+  }
+  
+  /* Explicit dark theme setting */
+  @scope ([data-appearance="dark"]) {
+    :scope {
+      color-scheme: dark;
+      /* Primary */
+      --blockquote--color--primary--default: var(--blockquote--color--primary--default--dark);
+      --blockquote--color--secondary--default: var(--blockquote--color--secondary--default--dark);
+      --blockquote--backgroundColor--default: var(--blockquote--backgroundColor--default--dark);
+      --blockquote--borderColor--default: var(--blockquote--borderColor--default--dark);
+    }
+  }
+  
+  /* System preference high contrast mode */
+  @media (prefers-contrast: more) {
+    /* Contrast light mode */
+    @scope (:root:not([data-appearance="dark"])) {
+      :scope {
+        /* Primary */
+        --blockquote--color--primary--default: var(--blockquote--color--primary--default--light--contrast);
+        --blockquote--color--secondary--default: var(--blockquote--color--secondary--default--light--contrast);
+        --blockquote--backgroundColor--default: var(--blockquote--backgroundColor--default--light--contrast);
+        --blockquote--borderColor--default: var(--blockquote--borderColor--default--light--contrast);
+      }
+    }
+  
+    /* Contrast dark mode */
+    @scope (:root[data-appearance="dark"]) {
+      :scope {
+        /* Primary */
+        --blockquote--color--primary--default: var(--blockquote--color--primary--default--dark--contrast);
+        --blockquote--color--secondary--default: var(--blockquote--color--secondary--default--dark--contrast);
+        --blockquote--backgroundColor--default: var(--blockquote--backgroundColor--default--dark--contrast);
+        --blockquote--borderColor--default: var(--blockquote--borderColor--default--dark--contrast);
+      }
+    }
+  
+    /* Contrast dark mode (system preference) */
+    @scope (:root:not([data-appearance])) {
+      @media (prefers-color-scheme: dark) {
+        :scope {
+          /* Primary */
+          --blockquote--color--primary--default: var(--blockquote--color--primary--default--dark--contrast);
+          --blockquote--color--secondary--default: var(--blockquote--color--secondary--default--dark--contrast);
+          --blockquote--backgroundColor--default: var(--blockquote--backgroundColor--default--dark--contrast);
+          --blockquote--borderColor--default: var(--blockquote--borderColor--default--dark--contrast);
+        }
+      }
+    }
+  }

@@ -28,9 +28,13 @@ export const GUESTBOOK_QUERY = `
               blockquote
               quoteAuthor
               quoteImage {
-                url
-                width
-                height
+                alt
+                avatar: url @transform(handle: "squareAvatar")
+                avatarWidth: width @transform(handle: "squareAvatar")
+                avatarHeight: height @transform(handle: "squareAvatar")
+                blur: url @transform(handle: "squareAvatarBlur")
+                blurWidth: width @transform(handle: "squareAvatarBlur")
+                blurHeight: height @transform(handle: "squareAvatarBlur")
               }
             }
             ... on CkeditorMarkup {

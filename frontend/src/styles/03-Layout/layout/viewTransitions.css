@@ -8,12 +8,12 @@
   https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API/Using_the_View_Transitions_API
 */
 
-::view-transition-old(main-header) {
+/* ::view-transition-old(main-header) {
   animation: 200ms ease-in-out both slide-out-up;
 }
 ::view-transition-new(main-header) {
   animation: 200ms ease-in-out both slide-in-down;
-}
+} */
 
 ::view-transition-old(main-footer) {
   animation: 200ms ease-in-out both slide-out-down;

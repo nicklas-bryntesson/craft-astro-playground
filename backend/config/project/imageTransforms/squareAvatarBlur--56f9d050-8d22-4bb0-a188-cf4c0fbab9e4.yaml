@@ -1,0 +1,11 @@
+fill: null
+format: webp
+handle: squareAvatarBlur
+height: 64
+interlace: plane
+mode: crop
+name: 'Square avatar blur'
+position: center-center
+quality: 10
+upscale: true
+width: 64
