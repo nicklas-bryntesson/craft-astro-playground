@@ -21,29 +21,33 @@ if (!entry) {
 ---
 
 <Layout title={entry.title}>
-  <main data-template="pageSlug">
-    {entry.image?.[0] && (
-      <figure>
-        <img src={entry.image[0].url} alt={entry.image[0].alt} />
-      </figure>
-    )}
+  <main data-template="pageSlug" data-layout="page">
 
-    <div class="">
-      {entry.ancestors?.length > 0 && (
-        <ul class="">
-          {entry.ancestors.map((ancestor: any) => (
-            <li>
-              <a href={`/${ancestor.uri}`}>{ancestor.title}</a>
-            </li>
-          ))}
-        </ul>
+    <header class="pageHeader">
+      {entry.image?.[0] && (
+        <figure>
+          <img src={entry.image[0].url} alt={entry.image[0].alt} />
+        </figure>
       )}
 
-      <h1 class="">{entry.title}</h1>
-      {entry.pageSubheading && (
-        <p class="mt-4">{entry.pageSubheading}</p>
-      )}
-    </div>
+      <div class="">
+        {entry.ancestors?.length > 0 && (
+          <ul class="">
+            {entry.ancestors.map((ancestor: any) => (
+              <li>
+                <a href={`/${ancestor.uri}`}>{ancestor.title}</a>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <h1 class="">{entry.title}</h1>
+        {entry.pageSubheading && (
+          <p class="mt-4">{entry.pageSubheading}</p>
+        )}
+      </div>
+    </header>
+
 
     {entry.pageContent?.chunks && (
       <div class="pageContent prose">
@@ -73,25 +77,5 @@ if (!entry) {
 <style scoped>
   :where(main) {
     padding-block: 2rem;
-    display: flex;
-    flex-direction: column;
   }
 </style>
-
-<style is:global>
-  .pageContent {
-    display: grid;
-    grid-template-columns: var(--centerGrid--columns);
-
-    & > * {
-      grid-column: main;
-    }
-
-    .breakkoutGrid {
-
-    }
-
-
-  }
-</style>
-  

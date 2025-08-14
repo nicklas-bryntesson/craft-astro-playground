@@ -58,7 +58,7 @@ const pageTitle = totalPages > 1
             {posts.map((post: any) => (
               <li>
                 <article class="text-xl py-6">
-                  <div set:html={post.textBlock} />
+                  <div set:html={post.textBlock.html} />
                   <p class="text-sm mt-1">
                     <time datetime={post.postDate}>{post.postDate}</time>
                   </p>
@@ -98,15 +98,3 @@ const pageTitle = totalPages > 1
     window.location.href = '/guestbook?page=1';
   });
 </script>
-
-
-<style scoped>
-  :where(main) {
-    display: grid;
-    grid-template-columns: var(--centerGrid--columns);
-
-    & > * {
-      grid-column: main;
-    }
-  }
-</style>

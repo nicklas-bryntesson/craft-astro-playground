@@ -4,39 +4,49 @@ const { block } = Astro.props;
 const image = block.quoteImage?.[0];
 ---
 
-<figure class="block BlockQuote" data-background="false" data-width="">
-
-    <svg aria-hidden="true" focusable="false">
-        <use href={`#icon-chat`}></use>
-    </svg>
-
-    <div class="contentContainer">
-        {image && 
-            <div class="thumbnail">
-                <div class="foreground">
-                   <img class="" src={image.avatar} alt={image.alt || ''} width={image.avatarWidth} height={image.avatarHeight} loading="lazy" />
+<div class="BlockQuote" data-background="false" data-width="">
+    <figure class="Component">
+    
+        <svg aria-hidden="true" focusable="false">
+            <use href={`#icon-chat`}></use>
+        </svg>
+    
+        <div class="contentContainer">
+            {image && 
+                <div class="thumbnail">
+                    <div class="foreground">
+                       <img class="" src={image.avatar} alt={image.alt || ''} width={image.avatarWidth} height={image.avatarHeight} loading="lazy" />
+                    </div>
+                    <div class="blur">
+                        <img class="" src={image.blur} alt="" width={image.blurWidth} height={image.blurHeight} loading="lazy" aria-hidden="true" />
+                    </div>
                 </div>
-                <div class="blur">
-					<img class="" src={image.blur} alt="" width={image.blurWidth} height={image.blurHeight} loading="lazy" aria-hidden="true" />
-                </div>
-            </div>
-        }
+            }
+    
+            <blockquote>
+                <p>{block.blockquote}</p>
+            </blockquote>
+    
+            {block.quoteAuthor && (
+                <figcaption>
+                    <span aria-hidden="true">-</span>
+                    {block.quoteAuthor}
+                </figcaption>
+            )}
+        </div>
+    </figure>
+</div>
 
-        <blockquote>
-            <p>{block.blockquote}</p>
-        </blockquote>
+<style is:global>
+.BlockQuote {
+    padding: 0;
+    margin: 0;
+}
 
-        {block.quoteAuthor && (
-            <figcaption>
-                <span aria-hidden="true">-</span>
-                {block.quoteAuthor}
-            </figcaption>
-        )}
-    </div>
-</figure>
+</style>
 
 <style scoped>
-    .BlockQuote {
+    .Component {
         --_colorPrimary: var(--blockquote--color--primary--default);
         --_colorSecondary: var(--blockquote--color--secondary--default);
         --_backgroundColor: var(--blockquote--backgroundColor--default);

@@ -4,7 +4,9 @@ export const GUESTBOOK_POSTS_QUERY = `
       ... on text_Entry {
         id
         title
-        textBlock @markdown
+        textBlock {
+          html
+        }
         postDate @formatDateTime(format: "F j, Y")
       }
     }

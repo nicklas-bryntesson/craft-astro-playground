@@ -7,6 +7,7 @@ export const GUESTBOOK_QUERY = `
         pageSubheading
         authorId
         pageContent {
+          html
           chunks {
             __typename
             ... on image_Entry {

@@ -1,0 +1,66 @@
+[data-layout="page"] {
+    display: flex;
+    flex-direction: column;
+
+    & .pageHeader {
+        display: grid;
+        grid-template-columns: var(--centerGrid--columns);
+        column-gap: var(--centerGrid--gap);
+        grid-auto-rows: min-content;
+
+        & > * {
+            grid-column: main;
+        }
+    }
+
+    & .pageContent {
+        display: grid;
+        grid-template-columns: var(--centerGrid--columns);
+        column-gap: var(--centerGrid--gap);
+        grid-auto-rows: min-content;
+
+        & > * {
+            grid-column: main;
+        }
+
+        & .Text {
+            display: grid;
+            grid-template-columns: var(--baseGrid--columns);
+            column-gap: var(--baseGrid--gap);
+
+            & > * {
+                grid-column: 3/11;
+            }
+        }
+
+        & .Image {
+            display: grid;
+            grid-template-columns: var(--baseGrid--columns);
+            column-gap: var(--baseGrid--gap);
+
+            & > * {
+                grid-column: 2/12;
+            }
+        }
+
+        & .CallOut {
+            display: grid;
+            grid-template-columns: var(--baseGrid--columns);
+            column-gap: var(--baseGrid--gap);
+
+            & > * {
+                grid-column: 3/11;
+            }
+        }
+
+        & .BlockQuote {
+            display: grid;
+            grid-template-columns: var(--baseGrid--columns);
+            column-gap: var(--baseGrid--gap);
+
+            & > * {
+                grid-column: 2/12;
+            }
+        }
+    }
+}

@@ -28,5 +28,6 @@
 
 .baseGrid {
   display: grid;
-  grid-template-columns: var();
+  grid-template-columns: var(--baseGrid--columns);
+  column-gap: var(--baseGrid--gap);
 }
