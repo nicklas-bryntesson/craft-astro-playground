@@ -21,7 +21,7 @@ if (!entry) {
 ---
 
 <Layout title={entry.title}>
-  <main>
+  <main data-template="pageSlug">
     {entry.image?.[0] && (
       <figure>
         <img src={entry.image[0].url} alt={entry.image[0].alt} />
@@ -70,14 +70,28 @@ if (!entry) {
 
 <Fragment set:html={PreviewScript({ isPreview: preview.isPreview })} /> 
 
-
 <style scoped>
   :where(main) {
+    padding-block: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+</style>
+
+<style is:global>
+  .pageContent {
     display: grid;
     grid-template-columns: var(--centerGrid--columns);
 
     & > * {
       grid-column: main;
     }
+
+    .breakkoutGrid {
+
+    }
+
+
   }
 </style>
+  

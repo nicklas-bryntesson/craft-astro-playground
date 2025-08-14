@@ -4,13 +4,21 @@ instructions: null
 name: 'Text block'
 searchable: true
 settings:
-  byteLimit: null
-  charLimit: null
-  code: false
-  initialRows: 20
-  multiline: true
-  placeholder: null
-  uiMode: normal
+  availableTransforms: '*'
+  availableVolumes: '*'
+  characterLimit: null
+  ckeConfig: 7dac7ab3-08a0-4af8-ba7c-cbecd0726f08 # Simple
+  createButtonLabel: null
+  defaultTransform: null
+  fullGraphqlData: true
+  purifierConfig: null
+  purifyHtml: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  showWordCount: false
+  sourceEditingGroups:
+    - __ADMINS__
+  wordLimit: null
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\PlainText
+type: craft\ckeditor\Field

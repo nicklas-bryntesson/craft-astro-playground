@@ -36,5 +36,5 @@
 .breakoutGrid {
   display: grid;
   grid-template-columns: var(--breakoutGrid--columns);
-  gap: var(--breakoutGrid--gap);
+  column-gap: var(--breakoutGrid--gap);
 }

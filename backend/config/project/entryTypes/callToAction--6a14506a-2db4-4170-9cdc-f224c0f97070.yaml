@@ -1,0 +1,51 @@
+color: red
+fieldLayouts:
+  6e653dd7-08a6-4a61-9266-9f8cb99560b7:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-08-13T12:52:42+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 3a2c9965-43e9-400f-8a2b-b7d233cd8547
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: e2b6c707-fca0-45eb-a13f-6c95d327887b
+        userCondition: null
+handle: callToAction
+hasTitleField: true
+icon: bullhorn
+name: 'Call to action'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

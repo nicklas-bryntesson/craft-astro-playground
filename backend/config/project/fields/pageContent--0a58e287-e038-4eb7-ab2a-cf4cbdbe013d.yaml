@@ -28,6 +28,11 @@ settings:
         -
           - uid
           - e37a3692-ee5d-4351-a7dd-b1e5a663e2df # Blockquote
+    -
+      __assoc__:
+        -
+          - uid
+          - e90d86ce-5a58-4943-ad41-d030a2e13cec # Text with image
   fullGraphqlData: true
   purifierConfig: null
   purifyHtml: true

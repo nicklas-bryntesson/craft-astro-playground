@@ -1,0 +1,28 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 6a14506a-2db4-4170-9cdc-f224c0f97070 # Call to action
+handle: ctaBlocks
+maxAuthors: 1
+name: 'Call to Action Blocks'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  58ccb571-6c72-449f-8e7b-6f43c5d416b3: # Astro Starter
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: channel
