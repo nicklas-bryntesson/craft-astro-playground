@@ -1,0 +1,55 @@
+color: indigo
+fieldLayouts:
+  44a7334d-2481-43bb-be7e-15a7e2002225:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-08-18T12:04:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6d2e5577-5ded-43c9-96e2-d4fc4c770fe9 # Link
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: __blank__
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 25fd8b6b-413a-4c88-aca4-a4ced785d9dd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T12:04:41+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6d2e5577-5ded-43c9-96e2-d4fc4c770fe9 # Link
+            handle: linkText
+            includeInCards: false
+            instructions: null
+            label: __blank__
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3c2638fa-b7bf-4ade-a54b-676613b2075c
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 17fa7642-d1a9-48b4-98e9-9bf5aff79a0b
+        userCondition: null
+handle: button
+hasTitleField: false
+icon: link
+name: Button
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

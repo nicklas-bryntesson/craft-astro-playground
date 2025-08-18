@@ -1,0 +1,31 @@
+columnSuffix: null
+handle: textContentBlock
+instructions: null
+name: 'Text content - Block'
+searchable: true
+settings:
+  availableTransforms: ''
+  availableVolumes:
+    - 7b9364bd-2215-495a-8b0b-2280df887a8b # Media
+  characterLimit: null
+  ckeConfig: d0d6f054-ee23-424d-ba9d-89ce3b700845 # Medium
+  createButtonLabel: null
+  defaultTransform: null
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - e8c46c1f-bf76-472b-aa7a-41a95c7e0a76 # Button
+  fullGraphqlData: true
+  purifierConfig: null
+  purifyHtml: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  showWordCount: true
+  sourceEditingGroups:
+    - __ADMINS__
+  wordLimit: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\ckeditor\Field

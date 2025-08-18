@@ -47,8 +47,8 @@
   
   p {
     font-size: var(--fontSize--body, 1.125rem);
-    margin-block: 1.25em;
-    margin-block: 1lh;
+    margin-block-end: 1.25em;
+    margin-block-end: 1lh;
   }
 
   :where(pre) {

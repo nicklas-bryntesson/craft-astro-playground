@@ -11,7 +11,7 @@ fieldLayouts:
             dateAdded: '2025-08-12T08:34:43+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: 6d2e5577-5ded-43c9-96e2-d4fc4c770fe9 # Text
+            fieldUid: 6d2e5577-5ded-43c9-96e2-d4fc4c770fe9 # Link
             handle: blockquote
             includeInCards: true
             instructions: null
@@ -28,7 +28,7 @@ fieldLayouts:
             dateAdded: '2025-08-12T08:34:43+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: 6d2e5577-5ded-43c9-96e2-d4fc4c770fe9 # Text
+            fieldUid: 6d2e5577-5ded-43c9-96e2-d4fc4c770fe9 # Link
             handle: quoteAuthor
             includeInCards: false
             instructions: null

@@ -37,6 +37,18 @@ export const HOME_QUERY = `
                 blurHeight: height @transform(handle: "squareAvatarBlur")
               }
             }
+            ... on textWithImage_Entry {
+              title
+              textContentBlock {
+                html
+              }
+              image {
+                url
+                width
+                height
+              }
+              horisontalImageAlignment
+            }
             ... on CkeditorMarkup {
               html
             }

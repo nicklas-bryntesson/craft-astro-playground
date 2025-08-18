@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: text
+handle: linkUrl
 instructions: null
-name: Text
+name: Link
 searchable: true
 settings:
   byteLimit: null
@@ -9,7 +9,7 @@ settings:
   code: false
   initialRows: 4
   multiline: false
-  placeholder: null
+  placeholder: 'My link'
   uiMode: normal
 translationKeyFormat: null
 translationMethod: none

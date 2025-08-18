@@ -2,7 +2,7 @@
 const { block } = Astro.props;
 const image = block.image[0];
 ---
-<figure class="Image">
+<figure class="Image Block">
   <img src={image.url} alt={block.title || ''} width={image.width} height={image.height} class="" loading="lazy" />
   {block.title && <figcaption>{block.title}</figcaption>}
 </figure> 

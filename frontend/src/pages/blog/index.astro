@@ -30,7 +30,7 @@ const pageTitle = totalPages > 1
 ---
 
 <Layout title={pageTitle}>
-  <main class="">
+  <main data-template="blog" data-layout="page">
     {blogPage && (
       <header class="">
         <h1 class="">{blogPage.title}</h1>
@@ -75,31 +75,20 @@ const pageTitle = totalPages > 1
 
 <Fragment set:html={PreviewScript({ isPreview: preview.isPreview })} />
 
-
 <style scoped>
-:where(main) {
+.relatedContent {
+  --_gridColumns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+
+  margin-inline: auto;
+  grid-column: 1/-1;
   display: grid;
   grid-template-columns: var(--centerGrid--columns);
-  padding-block: 2rem;
 
-  & > * {
+  > .teaserContainer {
     grid-column: main;
-  }
-
-  & .relatedContent {
-    --_gridColumns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
-
-    margin-inline: auto;
-    grid-column: 1/-1;
     display: grid;
-    grid-template-columns: var(--centerGrid--columns);
-
-    > .teaserContainer {
-      grid-column: main;
-      display: grid;
-      grid-template-columns: var(--_gridColumns);
-      gap:1rem;
-    }
+    grid-template-columns: var(--_gridColumns);
+    gap:1rem;
   }
 }
 </style>

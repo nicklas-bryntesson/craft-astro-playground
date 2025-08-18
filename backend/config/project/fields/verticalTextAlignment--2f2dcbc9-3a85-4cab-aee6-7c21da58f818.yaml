@@ -1,0 +1,62 @@
+columnSuffix: null
+handle: verticalTextAlignment
+instructions: 'Vertical align the text to the top, center or bottom of the image'
+name: 'Vertical text alignment'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Top
+        -
+          - value
+          - top
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Center
+        -
+          - value
+          - center
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Bottom
+        -
+          - value
+          - bottom
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\RadioButtons

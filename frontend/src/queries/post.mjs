@@ -6,7 +6,9 @@ export const CREATE_POST_MUTATION = `
       authorId: $authorId
     ) {
       title
-      textBlock
+      textBlock {
+        html
+      }
     }
   }
 `

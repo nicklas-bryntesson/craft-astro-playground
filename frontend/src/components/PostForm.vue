@@ -77,7 +77,7 @@ const submitPost = async () => {
     </div>
     <input 
       type="submit" 
-      class="rounded font-bold bg-red-600 text-slate-50 px-6 py-4" 
+      class="button" 
       value="Post entry" 
       :disabled="loading"
     >

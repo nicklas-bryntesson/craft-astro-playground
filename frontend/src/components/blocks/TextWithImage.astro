@@ -1,0 +1,82 @@
+---
+const { block } = Astro.props;
+
+const image = block.image?.[0];
+const imageAlignment = block.horisontalImageAlignment || 'right';
+---
+
+<div class="TextWithImage Block" data-block-theme="" data-image-alignment={imageAlignment}>
+    <div class="Component">
+        <div class="content">
+            {block.title && <h2>{block.title}</h2>}
+            <div set:html={block.textContentBlock.html}></div>
+        </div>
+        <figure class="image">
+            <img src={image.url} alt={block.title || ''} width={image.width} height={image.height} class="" loading="lazy" />
+        </figure>
+    </div>
+</div>
+
+<style is:global>
+    .TextWithImage {
+        margin-inline: 0;
+    }
+</style>
+
+<style scoped>
+.TextWithImage {
+    --_textAlignement: center;
+    margin-block: var(--size--2xl);
+
+    & .Component {
+        display: grid;
+        grid-template-columns: var(--breakoutGrid--columns);
+        column-gap: var(--breakoutGrid--gap);
+
+        & .content {
+            grid-row: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: var(--_textAlignement);
+            margin-block: var(--size--2xl);
+        }
+
+        & .image {
+            grid-row: 1;
+            overflow: hidden;
+
+            > img {
+                inline-size: 100%;
+                block-size: auto;
+            }
+        }
+    }
+
+    &[data-image-alignment="right"] {
+        & .content {
+            grid-column: 3/8;
+        }
+
+        & .image {
+            grid-column: 9/15;
+            border-start-start-radius: 1rem;
+            border-end-start-radius: 1rem;
+        }
+    }
+
+    &[data-image-alignment="left"] {
+        & .content {
+            grid-column: 9/14;
+        }
+
+        & .image {
+            grid-column: 1/8;
+
+            & img {
+                border-start-end-radius: 1rem;
+                border-end-end-radius: 1rem;
+            }
+        }
+    }
+}
+</style>

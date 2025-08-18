@@ -4,7 +4,7 @@ const { block } = Astro.props;
 const image = block.quoteImage?.[0];
 ---
 
-<div class="BlockQuote" data-background="false" data-width="">
+<div class="BlockQuote Block" data-background="false" data-width="">
     <figure class="Component">
     
         <svg aria-hidden="true" focusable="false">
@@ -57,6 +57,7 @@ const image = block.quoteImage?.[0];
         padding: var(--size--xl);
         background-color: var(--_backgroundColor);
         border-inline-start: 0.3em solid var(--_borderColor);
+        margin-block-end: 2rem;
 
         > svg {
             display: grid;
@@ -128,12 +129,15 @@ const image = block.quoteImage?.[0];
                 > p {
                     font-size: var(--fontSize--h1);
                     margin-block: 0;
+                    line-height: 1.125;
                 }
             }
             > figcaption {
                 grid-area: author;
                 font-style: italic;
-                font-size: var(--fontSize--h5)
+                margin-block-start: 1em;
+                font-size: var(--fontSize--h4);
+                color: var(--_colorSecondary)
             }
         }
     }

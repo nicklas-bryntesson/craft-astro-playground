@@ -1,24 +1,73 @@
 color: green
 fieldLayouts:
   fa6857cf-64a2-4aa3-8fd4-32920f194426:
+    cardView:
+      - 'layoutElement:ae62e4a1-5f80-424a-b840-577dd1ca797c'
     tabs:
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2025-08-13T13:07:23+00:00'
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-08-18T11:25:12+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: bdca3e3c-817d-4c15-9930-49daa730cb7d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T11:25:12+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: 9d42aa56-4a66-4d0b-b8a9-84a4cb387788 # Text block
+            fieldUid: 5fa79c32-8e3b-4ae6-a3c1-e6f21cfa02d1 # Text content - Block
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: __blank__
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a2e8a5ca-f0bb-4c90-a6b6-f502e856dfdb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T09:24:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 2f2dcbc9-3a85-4cab-aee6-7c21da58f818 # Vertical text alignment
             handle: null
             includeInCards: false
             instructions: null
             label: null
             providesThumbs: false
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 1458bd3c-f95c-4372-82b2-08197fb56486
+            uid: f6f8f82d-f7f8-4a43-9ced-d3ed5cf69896
             userCondition: null
             warning: null
             width: 100
@@ -34,7 +83,7 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 6c9778b8-507c-4108-937d-6ceeabf35047 # Image
             handle: null
-            includeInCards: false
+            includeInCards: true
             instructions: null
             label: null
             providesThumbs: false
@@ -42,6 +91,23 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: ae62e4a1-5f80-424a-b840-577dd1ca797c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T09:24:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 544b5852-d1f2-4eb0-bee7-1eae61388349 # Horisontal image alignment
+            handle: null
+            includeInCards: false
+            instructions: 'Align the image to the left of the text or the right of the text'
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 96b998f6-7fca-41b7-8409-9fed2609c5ac
             userCondition: null
             warning: null
             width: 100
@@ -72,11 +138,11 @@ fieldLayouts:
         uid: fd0ac9fb-c073-4f68-8201-6d007e3a580d
         userCondition: null
 handle: textWithImage
-hasTitleField: false
+hasTitleField: true
 icon: table-columns
 name: 'Text with image'
-showSlugField: true
-showStatusField: true
+showSlugField: false
+showStatusField: false
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
 titleFormat: null
