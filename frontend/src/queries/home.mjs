@@ -42,11 +42,13 @@ export const HOME_QUERY = `
               textContentBlock {
                 html
               }
+              verticalTextAlignment
               image {
                 url
                 width
                 height
               }
+              aspectRatio
               horisontalImageAlignment
             }
             ... on CkeditorMarkup {

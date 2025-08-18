@@ -43,11 +43,13 @@ export const BLOG_QUERY = `
               textContentBlock {
                 html
               }
+              verticalTextAlignment
               image {
                 url
                 width
                 height
               }
+              aspectRatio
               horisontalImageAlignment
             }
             ... on CkeditorMarkup {

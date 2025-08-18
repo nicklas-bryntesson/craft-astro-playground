@@ -24,6 +24,7 @@ if (!entry) {
   <main data-template="pageSlug" data-layout="page">
 
     <header class="pageHeader">
+
       {entry.image?.[0] && (
         <figure>
           <img src={entry.image[0].url} alt={entry.image[0].alt} />
@@ -41,9 +42,10 @@ if (!entry) {
           </ul>
         )}
 
-        <h1 class="">{entry.title}</h1>
+
+        <h1>{entry.title}</h1>
         {entry.pageSubheading && (
-          <p class="mt-4">{entry.pageSubheading}</p>
+          <p>{entry.pageSubheading}</p>
         )}
       </div>
     </header>
@@ -77,5 +79,13 @@ if (!entry) {
 <style scoped>
   :where(main) {
     padding-block: 2rem;
+
+    & .pageHeader {
+      margin-block-end: var(--size--2xl);
+      & h1 {
+        margin-block-start: 2rem;
+        font-size: var(--fontSize--h1);
+      }
+    }
   }
 </style>

@@ -53,11 +53,13 @@ export const PAGE_QUERY = `
               textContentBlock {
                 html
               }
+              verticalTextAlignment
               image {
                 url
                 width
                 height
               }
+              aspectRatio
               horisontalImageAlignment
             }
             ... on CkeditorMarkup {

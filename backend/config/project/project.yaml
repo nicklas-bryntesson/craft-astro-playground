@@ -1,4 +1,4 @@
-dateModified: 1755520417
+dateModified: 1755524434
 elementSources:
   craft\elements\Entry:
     -
@@ -136,6 +136,7 @@ meta:
     2b829e15-a7bd-4ab0-9050-dcdfe44499cf: 'Public Schema' # Public Schema
     2bae9725-9546-4f55-a889-56102191aa89: Navigation # Navigation
     2f2dcbc9-3a85-4cab-aee6-7c21da58f818: 'Vertical text alignment' # Vertical text alignment
+    3a9a31da-cd96-4080-8c3e-1a0e8d93ab9c: 'Aspect ratio' # Aspect ratio
     3e2a1a6f-88ea-477b-936d-39393f2d594f: 'Guestbook Posts' # Guestbook Posts
     5dd08fc8-3ea4-4582-952f-4c0f7ebf409e: Category # Category
     5fa79c32-8e3b-4ae6-a3c1-e6f21cfa02d1: 'Text content - Block' # Text content - Block

@@ -1,11 +1,19 @@
 ---
 const { block } = Astro.props;
 
+const verticalTextAlignment = block.verticalTextAlignment || 'top';
 const image = block.image?.[0];
 const imageAlignment = block.horisontalImageAlignment || 'right';
+const imageAspectRatio = block.aspectRatio || 'landscape';
 ---
 
-<div class="TextWithImage Block" data-block-theme="" data-image-alignment={imageAlignment}>
+<div 
+    class="TextWithImage Block" 
+    data-block-theme=""
+    data-vertical-text-alignment={verticalTextAlignment}
+    data-image-alignment={imageAlignment} 
+    data-image-aspect-ratio={imageAspectRatio}
+>
     <div class="Component">
         <div class="content">
             {block.title && <h2>{block.title}</h2>}
@@ -25,7 +33,8 @@ const imageAlignment = block.horisontalImageAlignment || 'right';
 
 <style scoped>
 .TextWithImage {
-    --_textAlignement: center;
+    
+
     margin-block: var(--size--2xl);
 
     & .Component {
@@ -37,18 +46,55 @@ const imageAlignment = block.horisontalImageAlignment || 'right';
             grid-row: 1;
             display: flex;
             flex-direction: column;
-            justify-content: var(--_textAlignement);
-            margin-block: var(--size--2xl);
         }
 
         & .image {
+            position: relative;
             grid-row: 1;
             overflow: hidden;
 
             > img {
+                position: absolute;
+                inset: 0;
                 inline-size: 100%;
-                block-size: auto;
+                block-size: 100%;
+                object-fit: cover;
             }
+        }
+    }
+
+
+    &[data-vertical-text-alignment="top"] .content {
+        justify-content: start;
+    }
+    &[data-vertical-text-alignment="middle"] .content {
+        justify-content: center;
+    }
+    &[data-vertical-text-alignment="bottom"] .content {
+        justify-content: end;
+    }
+
+    &[data-image-aspect-ratio="square"] {
+        & .image {
+            aspect-ratio: 1;
+        }
+    }
+
+    &[data-image-aspect-ratio="landscape"] {
+        & .image {
+            aspect-ratio: 16/9;
+        }
+    }
+
+    &[data-image-aspect-ratio="portrait"] {
+        & .image {
+            aspect-ratio: 3/4;
+        }
+    }
+
+    &[data-image-aspect-ratio="golden"] {
+        & .image {
+            aspect-ratio: 1.618/1;
         }
     }
 
