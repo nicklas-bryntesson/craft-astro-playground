@@ -1,4 +1,8 @@
 :where(:root) {
+    --blockquote--fontSize--small: var(--fontSize--h3);
+    --blockquote--fontSize--medium: var(--fontSize--h2);
+    --blockquote--fontSize--large: var(--fontSize--h1);
+
     /* LIGHT */
     --blockquote--color--primary--default--light: var(--COLOR--N95);
     --blockquote--color--secondary--default--light: var(--COLOR--N80);

@@ -21,9 +21,11 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "craftcms/ckeditor": "^4.8.0",
+    "craftcms/ckeditor": "4.10.1",
     "craftcms/cloud": "*",
     "craftcms/cms": "^5.7.5",
+    "craftcms/webhooks": "^3.1.1",
+    "craftpulse/craft-colour-swatches": "*",
     "vlucas/phpdotenv": "^5.4.0"
   },
   "require-dev": {

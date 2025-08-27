@@ -33,7 +33,9 @@ settings:
         -
           - uid
           - e37a3692-ee5d-4351-a7dd-b1e5a663e2df # Blockquote
+  expandEntryButtons: false
   fullGraphqlData: true
+  parseEmbeds: false
   purifierConfig: null
   purifyHtml: true
   showUnpermittedFiles: false

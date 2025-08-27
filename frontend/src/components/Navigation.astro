@@ -9,9 +9,10 @@ interface Page {
 const { currentPath, pages = [] } = Astro.props;
 
 const isActiveOrChild = (pageUri: string) => {
-  const cleanCurrentPath = currentPath.replace(/\/$/, '');
-  const cleanPageUri = `/${pageUri}`.replace(/\/$/, '');
-  return cleanCurrentPath === cleanPageUri || cleanCurrentPath.startsWith(cleanPageUri + '/');
+const cleanCurrentPath = currentPath.replace(/\/$/, '');
+const cleanPageUri = `/${pageUri}`.replace(/\/$/, '');
+return cleanCurrentPath === cleanPageUri || cleanCurrentPath.startsWith(cleanPageUri + '/');
+
 };
 
 const isActive = (uri: string) => currentPath === `/${uri}`;

@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PostForm from '../../components/PostForm-NoRedirect.vue';
+import GuestbookPosts from '../../components/GuestbookPosts.vue';
+import { craftClient } from '../../lib/graphql';
+import { GUESTBOOK_QUERY } from '../../queries/guestbook.mjs';
+
+const data = await craftClient.query(GUESTBOOK_QUERY, {});
+const content = data?.guestbookEntries?.[0];
+---
+
+<Layout title="Guestbook Test">
+  <main>
+    <header class="container mx-auto pt-12 pb-6 px-2 text-2xl">
+      <h1 class="font-bold text-4xl sm:text-6xl lg:text-9xl">
+        Guestbook Test Page
+      </h1>
+    </header>
+
+    <div class="container mx-auto px-2 sm:grid gap-6 grid-cols-2">
+      <section class="mb-12">
+        <GuestbookPosts client:load />
+      </section>
+
+      <section>
+        <div class="bg-slate-200 p-6 mb-9 rounded">
+          <h2 class="font-bold text-3xl mb-4">Post an entry</h2>
+          <PostForm 
+            client:load
+            authorId={content?.authorId}
+          />
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

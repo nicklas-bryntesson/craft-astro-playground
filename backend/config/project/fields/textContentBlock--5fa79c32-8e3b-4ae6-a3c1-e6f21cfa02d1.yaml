@@ -17,7 +17,9 @@ settings:
         -
           - uid
           - e8c46c1f-bf76-472b-aa7a-41a95c7e0a76 # Button
+  expandEntryButtons: false
   fullGraphqlData: true
+  parseEmbeds: false
   purifierConfig: null
   purifyHtml: true
   showUnpermittedFiles: false

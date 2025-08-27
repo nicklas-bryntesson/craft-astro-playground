@@ -1,0 +1,40 @@
+/* lower brightness in non contrastmode darkmode */
+
+/*
+ * The following rules apply a filter to images in dark mode to reduce
+ * brightness, improving readability. For images that should not receive
+ * this treatment (e.g., logos, images with their own special filters),
+ * you can add the class "no-dark-filter" to the <img> tag.
+ */
+
+/*
+ * 1. Apply filter if the OS is in dark mode and high-contrast is not on.
+ */
+@media (prefers-color-scheme: dark) and (prefers-contrast: no-preference) {
+    img {
+        filter: brightness(0.85) contrast(1.1);
+    }
+}
+
+/*
+ * 2. Apply filter if dark mode has been explicitly enabled on the site.
+ */
+[data-appearance="dark"] img {
+    filter: brightness(0.85) contrast(1.1);
+}
+
+/*
+ * 3. As an exception, if the OS prefers more contrast, remove our filter
+ *    to respect the user's accessibility setting.
+ */
+@media (prefers-contrast: more) {
+    [data-appearance="dark"] img {
+        /*
+         * This resets the filter. For an image with a custom filter, this
+         * means the custom filter will be removed in high-contrast dark mode.
+         * This is a CSS limitation. Using the ".no-dark-filter" class on
+         * such images is the recommended way to preserve their filters.
+         */
+        filter: none;
+    }
+}

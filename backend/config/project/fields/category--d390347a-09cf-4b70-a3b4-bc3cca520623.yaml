@@ -6,12 +6,16 @@ searchable: false
 settings:
   allowSelfRelations: false
   branchLimit: 1
+  defaultPlacement: end
   maintainHierarchy: true
   maxRelations: null
   minRelations: null
   selectionLabel: 'Add category'
   showCardsInGrid: false
+  showSearchInput: true
   showSiteMenu: false
+  showUnpermittedEntries: true
+  showUnpermittedSections: true
   sources:
     - 'section:70b2614b-639a-4de2-8c11-3851d36d6f8c' # Blog Categories
   targetSiteId: null

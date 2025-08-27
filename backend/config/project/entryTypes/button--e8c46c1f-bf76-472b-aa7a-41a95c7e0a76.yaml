@@ -1,6 +1,8 @@
 color: indigo
+description: null
 fieldLayouts:
   44a7334d-2481-43bb-be7e-15a7e2002225:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null

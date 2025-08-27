@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: sectionBlock
+instructions: 'If this block is self standing content, it should be marked as such in the html for accessibillity purpose.'
+name: 'Make into section'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

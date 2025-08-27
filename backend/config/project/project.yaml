@@ -1,4 +1,4 @@
-dateModified: 1755524434
+dateModified: 1755720534
 elementSources:
   craft\elements\Entry:
     -
@@ -160,7 +160,10 @@ meta:
     544b5852-d1f2-4eb0-bee7-1eae61388349: 'Horisontal image alignment' # Horisontal image alignment
     697da4c2-e02f-4f49-9d76-e22609ceda25: Page # Page
     998bf681-e007-4f7e-a525-863e01a38560: Blog # Blog
+    3186fe55-0ff1-4796-93b4-0fd3d8398357: 'Text size' # Text size
+    4553c171-a207-4790-a28f-fbe4c088a0c9: 'Block Surface' # Block Surface
     5358db38-27c0-49b4-b9d3-e68326e79da2: Image # Image
+    07362c32-933d-4734-9245-ded033d68c43: 'Make into section' # Make into section
     0922209d-2911-419e-82cf-b05113a35f6e: Wide # Wide
     a06e695e-af7f-4a1b-84a7-575ec935e293: Video # Video
     aef20f9c-5c84-4c50-8a18-acf0452db62f: Guestbook # Guestbook
@@ -173,7 +176,7 @@ meta:
     d0d6f054-ee23-424d-ba9d-89ce3b700845: Medium # Medium
     d4f0917b-edcf-4ef0-a98b-661ff27384ad: Page # Page
     d55d172f-8b8f-4bb7-b680-31249981c350: Global # Global
-    d6485a63-635d-43c5-856a-c4ff44fefc9c: Layout # Layout
+    d6485a63-635d-43c5-856a-c4ff44fefc9c: 'Block layout' # Block layout
     d390347a-09cf-4b70-a3b4-bc3cca520623: Category # Category
     e8c46c1f-bf76-472b-aa7a-41a95c7e0a76: Button # Button
     e37a3692-ee5d-4351-a7dd-b1e5a663e2df: Blockquote # Blockquote
@@ -184,10 +187,18 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.0.0.0
+  colour-swatches:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.4.3
+  webhooks:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.4.0
 system:
   edition: solo
   live: true
   name: 'Astro Starter'
   retryDuration: null
-  schemaVersion: 5.7.0.3
+  schemaVersion: 5.8.0.3
   timeZone: America/Los_Angeles

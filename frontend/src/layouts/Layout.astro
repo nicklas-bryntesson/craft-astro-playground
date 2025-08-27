@@ -57,9 +57,13 @@ const currentPath = Astro.url.pathname;
 body {
 	min-height: 100vh;
 	min-block-size: 100dvh;
+	color: var(--body--color);
+  	background-color: var(--body--backgroundColor);
+  	transition: background-color 0.125s ease-in-out, color 0.125s ease-in-out;
 }
 #app {
 	display: flex;
+	flex: 1;
 	flex-direction: column;
 }
 .mainContainer {

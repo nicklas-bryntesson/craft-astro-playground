@@ -19,8 +19,17 @@
         column-gap: var(--centerGrid--gap);
         grid-auto-rows: min-content;
 
+        .Text > p {
+            margin-block-start: 1em;
+            margin-block-end: 0;
+        }
+
         & > * {
             grid-column: main;
+        }
+
+        & > .Block {
+            margin-block-start: 4rem;
         }
 
         & .Text {
@@ -63,7 +72,7 @@
             }
         }
 
-        & .TextWithImage {
+        & .TextWithImage[data-layout="full"] {
             grid-column: 1/-1;
         }
     }

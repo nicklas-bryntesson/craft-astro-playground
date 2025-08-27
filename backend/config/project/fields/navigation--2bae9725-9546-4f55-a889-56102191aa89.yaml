@@ -5,6 +5,8 @@ name: Navigation
 searchable: false
 settings:
   createButtonLabel: 'New page'
+  defaultIndexViewMode: cards
+  enableVersioning: false
   includeTableView: false
   maxEntries: null
   minEntries: null

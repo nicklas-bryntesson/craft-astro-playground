@@ -1,6 +1,8 @@
 color: blue
+description: null
 fieldLayouts:
   891fe5ca-95b0-4938-983e-0055db8d833a:
+    cardThumbAlignment: end
     cardView:
       - 'layoutElement:c7d47a81-41a0-4346-a3ac-7732a917098d'
     tabs:
@@ -21,6 +23,23 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: c7d47a81-41a0-4346-a3ac-7732a917098d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T20:28:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3186fe55-0ff1-4796-93b4-0fd3d8398357 # Text size
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: __blank__
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 64e93745-fb44-43f4-a353-ce854f04a9f2
             userCondition: null
             warning: null
             width: 100
@@ -55,6 +74,23 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: f29566ca-a59b-46ad-82de-3b18c791abb3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-19T11:39:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6d2e5577-5ded-43c9-96e2-d4fc4c770fe9 # Link
+            handle: quoteLinkUrl
+            includeInCards: false
+            instructions: 'Link the origin of the quote'
+            label: Cite
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b2a80270-3a7e-44a3-a4e4-82324e09e61b
             userCondition: null
             warning: null
             width: 100

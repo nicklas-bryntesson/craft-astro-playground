@@ -5,3 +5,137 @@
 @import '03-Layout/index.css';
 
 @import '04-Utility/index.css';
+
+
+
+
+
+
+.textBlock,
+.faqListBlock,
+.imageTextGridBlock,
+.logoMarqueeBlock,
+.storiesBlock,
+.basicListBlock,
+.videoEmbedBlock,
+.imageTextBlock,
+.relatedListBlock,
+.columnBlock,
+.longFormBlock,
+.eBookDownloadBlock {
+  /* Padding top */
+  padding-block-start: var(--block-start-padding);
+}
+
+.block[theme="surface-N00"] {
+  background-color: var(--color-N00);
+}
+
+.block[theme="surface-N05"] {
+  background-color: var(--color-N05);
+}
+
+.block[theme="surface-N10"] {
+  background-color: var(--color-N10);
+}
+
+.block[theme="surface-R80"] {
+  background-color: var(--color-R80);
+
+  .blockContent a {
+    color: var(--color-R30);
+  }
+}
+
+.block[theme="surface-R90"] {
+  background-color: var(--color-R90);
+  color: var(--color-R30);
+
+  .blockContent a {
+    color: var(--color-R30);
+  }
+}
+
+/* Collapse padding top: */
+.block[theme="surface-N00"] + .block[theme="surface-N00"] {
+  padding-block-start: 0;
+}
+
+/* Collapse padding top: */
+.block[theme="surface-N05"] + .block[theme="surface-N05"] {
+  padding-block-start: 0;
+}
+
+.block[theme="surface-N10"] + .block[theme="surface-N10"] {
+  padding-block-start: 0;
+}
+
+.block[theme="surface-R80"] + .block[theme="surface-R80"] {
+  padding-block-start: 0;
+}
+
+.block[theme="surface-R90"] + .block[theme="surface-R90"] {
+  padding-block-start: 0;
+}
+
+/* Fix for links in pink text */
+.block[theme="surface-R80"],
+.block[theme="surface-R90"] {
+  .textColorR30 {
+    color: var(--color-R30);
+
+    & a {
+      color: var(--color-R20);
+      text-decoration-color: var(--color-R50);
+
+      &:hover {
+        color: var(--color-R10);
+        text-decoration-color: var(--color-R10);
+      }
+    }
+  }
+}
+
+
+.pageContent {
+  
+  & .Text {
+    margin-block-start: 4rem;
+
+    & > p:first-of-type {
+      margin-block-start: 0;
+    }
+  }
+  
+  & .Text + .Text {
+    margin-block-start: 1em;
+  }
+
+  & .Block {
+      --_paddingBlockStart: var(--size--5xl);
+      --_paddingBlockEnd: var(--size--5xl);
+  }
+  
+  /* Collapse padding top if a block with a surface follows another block with a surface: */
+
+  & .Block[data-surface="surface-1"] + .Block[data-surface="surface-1"],
+  & .Block[data-surface="surface-1"] + .Block[data-surface="surface-2"],
+  & .Block[data-surface="surface-1"] + .Block[data-surface="surface-3"],
+  & .Block[data-surface="surface-2"] + .Block[data-surface="surface-1"],
+  & .Block[data-surface="surface-2"] + .Block[data-surface="surface-2"],
+  & .Block[data-surface="surface-2"] + .Block[data-surface="surface-3"],
+  & .Block[data-surface="surface-3"] + .Block[data-surface="surface-1"],
+  & .Block[data-surface="surface-3"] + .Block[data-surface="surface-2"],
+  & .Block[data-surface="surface-3"] + .Block[data-surface="surface-3"] {
+    --_paddingBlockStart: var(--size--2xl);
+    margin-block-start: 0;
+  }
+
+  /* No margin on the first item no matter what the first item is... */
+  & > :first-child {
+    margin-block-start: 0;
+  }
+}
+
+
+  

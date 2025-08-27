@@ -1,12 +1,21 @@
 color: green
+description: null
 fieldLayouts:
   fa6857cf-64a2-4aa3-8fd4-32920f194426:
+    cardThumbAlignment: end
     cardView:
       - 'layoutElement:ae62e4a1-5f80-424a-b840-577dd1ca797c'
     tabs:
       -
         elementCondition: null
         elements:
+          -
+            dateAdded: '2025-08-19T08:34:05+00:00'
+            elementCondition: null
+            heading: Text
+            type: craft\fieldlayoutelements\Heading
+            uid: 1d37ff8b-4c3d-4a8b-8387-0907033853b1
+            userCondition: null
           -
             autocapitalize: true
             autocomplete: false
@@ -71,12 +80,19 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-        name: Content
-        uid: 907d21d4-79dc-4a22-83e2-14758ed1c1ba
-        userCondition: null
-      -
-        elementCondition: null
-        elements:
+          -
+            dateAdded: '2025-08-19T08:34:05+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: d5e634c4-44af-4c2b-9676-8d35ad784188
+            userCondition: null
+          -
+            dateAdded: '2025-08-19T08:34:05+00:00'
+            elementCondition: null
+            heading: Image
+            type: craft\fieldlayoutelements\Heading
+            uid: fba434e8-0c01-4007-90e8-abb977db1680
+            userCondition: null
           -
             dateAdded: '2025-08-13T13:07:23+00:00'
             editCondition: null
@@ -128,21 +144,28 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-        name: Image
-        uid: 64a8945a-eb2c-4a4e-bbcf-c71a427f57d1
-        userCondition: null
-      -
-        elementCondition: null
-        elements:
+          -
+            dateAdded: '2025-08-19T08:34:05+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: c2b03d9a-0472-42bd-bc69-fb47d41e1a19
+            userCondition: null
+          -
+            dateAdded: '2025-08-19T08:34:05+00:00'
+            elementCondition: null
+            heading: Layout
+            type: craft\fieldlayoutelements\Heading
+            uid: 81bccbc2-bb7e-440e-b3b1-63efdba1df24
+            userCondition: null
           -
             dateAdded: '2025-08-13T13:11:59+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: d6485a63-635d-43c5-856a-c4ff44fefc9c # Layout
+            fieldUid: d6485a63-635d-43c5-856a-c4ff44fefc9c # Block layout
             handle: null
             includeInCards: false
-            instructions: null
-            label: null
+            instructions: 'Controls the block width and the layout position of the images and text'
+            label: 'Block width'
             providesThumbs: false
             required: false
             tip: null
@@ -151,8 +174,54 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-        name: Layout
-        uid: fd0ac9fb-c073-4f68-8201-6d007e3a580d
+          -
+            dateAdded: '2025-08-19T06:27:45+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: d6485a63-635d-43c5-856a-c4ff44fefc9c # Block layout
+                  layoutElementUid: 96e4fef9-dc84-47ce-946d-fbd524f6d3ed
+                  operator: ni
+                  uid: 86b5a0ac-790a-407b-adc3-3a4f97d589ad
+                  values:
+                    - wide
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 4553c171-a207-4790-a28f-fbe4c088a0c9 # Block Surface
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Block background'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4e63d569-757e-43a7-9655-c896dfaabc0a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-20T20:08:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 07362c32-933d-4734-9245-ded033d68c43 # Make into section
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 604f5cc8-69aa-4dd2-9c7c-d74208887ec1
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 907d21d4-79dc-4a22-83e2-14758ed1c1ba
         userCondition: null
 handle: textWithImage
 hasTitleField: true

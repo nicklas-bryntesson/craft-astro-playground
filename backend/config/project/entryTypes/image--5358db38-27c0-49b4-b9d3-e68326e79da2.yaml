@@ -1,6 +1,8 @@
 color: rose
+description: null
 fieldLayouts:
   7339b416-d8d5-4e30-8a83-38965d1fbab7:
+    cardThumbAlignment: end
     cardView:
       - 'layoutElement:c5ab7afb-b942-4ca5-bda8-585e8d0aff03'
     tabs:

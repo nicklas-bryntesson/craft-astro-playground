@@ -1,12 +1,15 @@
 color: null
+description: null
 fieldLayouts:
   c250a111-95a7-4027-9739-9ff603802589:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
         elements:
           -
             dateAdded: '2024-08-21T04:09:37+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 6c9778b8-507c-4108-937d-6ceeabf35047 # Image
             handle: logo
@@ -23,6 +26,7 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2024-08-21T03:11:22+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 163c895f-0c05-4845-80e2-043b2346d830 # Address
             handle: null

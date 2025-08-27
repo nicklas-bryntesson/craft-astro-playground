@@ -2,9 +2,10 @@
 import './BlockQuote.tokens.css'
 const { block } = Astro.props;
 const image = block.quoteImage?.[0];
+const textSize = block.quoteTextSize || 'medium';
 ---
 
-<div class="BlockQuote Block" data-background="false" data-width="">
+<div class="BlockQuote Block" data-text-size={textSize}>
     <figure class="Component">
     
         <svg aria-hidden="true" focusable="false">
@@ -39,25 +40,33 @@ const image = block.quoteImage?.[0];
 
 <style is:global>
 .BlockQuote {
-    padding: 0;
-    margin: 0;
+    margin-inline: 0;
 }
 
 </style>
 
 <style scoped>
-    .Component {
+    .BlockQuote {
         --_colorPrimary: var(--blockquote--color--primary--default);
         --_colorSecondary: var(--blockquote--color--secondary--default);
         --_backgroundColor: var(--blockquote--backgroundColor--default);
         --_borderColor: var(--blockquote--borderColor--default);
         --_iconSize: var(--size--xl);
-
+        &[data-text-size="small"] {
+            --_textSize: var(--blockquote--fontSize--small);
+        }
+        &[data-text-size="medium"] {
+            --_textSize: var(--blockquote--fontSize--medium);
+        }
+        &[data-text-size="large"] {
+            --_textSize: var(--blockquote--fontSize--large);
+        }
+    
+    .Component {
         position: relative;
         padding: var(--size--xl);
         background-color: var(--_backgroundColor);
         border-inline-start: 0.3em solid var(--_borderColor);
-        margin-block-end: 2rem;
 
         > svg {
             display: grid;
@@ -127,7 +136,7 @@ const image = block.quoteImage?.[0];
                     block-size: var(--size--xl);
                 }
                 > p {
-                    font-size: var(--fontSize--h1);
+                    font-size: var(--_textSize);
                     margin-block: 0;
                     line-height: 1.125;
                 }
@@ -141,4 +150,5 @@ const image = block.quoteImage?.[0];
             }
         }
     }
+}
 </style>

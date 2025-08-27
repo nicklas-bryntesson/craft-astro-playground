@@ -27,6 +27,8 @@ export const HOME_QUERY = `
             ... on blockquote_Entry {
               blockquote
               quoteAuthor
+              quoteTextSize
+              quoteLinkUrl
               quoteImage {
                 alt
                 avatar: url @transform(handle: "squareAvatar")
@@ -50,6 +52,10 @@ export const HOME_QUERY = `
               }
               aspectRatio
               horisontalImageAlignment
+              blockLayout
+              blockSurface {
+                class
+              }
             }
             ... on CkeditorMarkup {
               html

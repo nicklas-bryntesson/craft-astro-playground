@@ -38,6 +38,8 @@ export const PAGE_QUERY = `
             ... on blockquote_Entry {
               blockquote
               quoteAuthor
+              quoteTextSize
+              quoteLinkUrl
               quoteImage {
                 alt
                 avatar: url @transform(handle: "squareAvatar")
@@ -55,12 +57,20 @@ export const PAGE_QUERY = `
               }
               verticalTextAlignment
               image {
-                url
-                width
-                height
+                alt
+                mainImageUrl: url @transform(handle: "squareAvatar")
+                mainImageWidth: width @transform(handle: "squareAvatar")
+                mainImageHeight: height @transform(handle: "squareAvatar")
+                blur: url @transform(handle: "squareAvatarBlur")
+                blurWidth: width @transform(handle: "squareAvatarBlur")
+                blurHeight: height @transform(handle: "squareAvatarBlur")
               }
               aspectRatio
               horisontalImageAlignment
+              blockLayout
+              blockSurface {
+                class
+              }
             }
             ... on CkeditorMarkup {
               html

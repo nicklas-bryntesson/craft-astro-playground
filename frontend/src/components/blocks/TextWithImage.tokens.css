@@ -1,0 +1,9 @@
+:where(:root) {
+    --textImage--gridColumns--wide: var(--baseGrid--columns);
+    --textImage--gridGap--wide: var(--baseGrid--gap);
+
+    --textImage--gridColumns--full: var(--breakoutGrid--columns);
+    --textImage--gridGap--full: var(--breakoutGrid--gap);
+
+    --textImage--contentColumn--left--wide: ;
+}
