@@ -81,6 +81,7 @@ COPY . .
 # Copy configuration files
 COPY .render/nginx.conf /etc/nginx/nginx.conf
 COPY .render/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY .render/php-fpm.conf /usr/local/etc/php-fpm.conf
 COPY .render/start.sh /start.sh
 RUN chmod +x /start.sh
 
@@ -91,15 +92,22 @@ RUN mkdir -p /var/www/html/storage/logs \
     && mkdir -p /var/log/nginx \
     && mkdir -p /var/log/supervisor \
     && mkdir -p /run/nginx \
+    && mkdir -p /var/run \
     && touch /var/log/nginx/access.log \
-    && touch /var/log/nginx/error.log
+    && touch /var/log/nginx/error.log \
+    && touch /var/log/php-fpm.log \
+    && touch /var/log/php-fpm-access.log
 
 # Set proper permissions
 RUN chown -R www-data:www-data /var/www/html/storage \
     && chown -R www-data:www-data /var/www/html/web/cpresources \
     && chown -R www-data:www-data /var/log/nginx \
+    && chown www-data:www-data /var/log/php-fpm.log \
+    && chown www-data:www-data /var/log/php-fpm-access.log \
     && chmod -R 755 /var/www/html/storage \
-    && chmod -R 755 /var/www/html/web/cpresources
+    && chmod -R 755 /var/www/html/web/cpresources \
+    && chmod 666 /var/log/php-fpm.log \
+    && chmod 666 /var/log/php-fpm-access.log
 
 # Expose port (Render.com uses PORT environment variable)
 EXPOSE ${PORT:-10000}
